@@ -9,20 +9,15 @@ using System.Threading.Tasks;
 
 namespace WordPlayer.AudioPlayer
 {
-    class AudioFile : IAudioFile
+    class AudioFileController : IAudioFileController
     {
-
         
-        private SoundPlayer player = null;
-        private IWavePlayer wavePlayer;
-        private AudioFileReader file;
+        private IWavePlayer wavePlayer = new WaveOutEvent();
         private FadeInOutSampleProvider fadeInOut;
 
-        public AudioFile(String path)
+        public AudioFileController(String path)
         {
-            wavePlayer = new WaveOutEvent();
-            file = new AudioFileReader(@path);
-            fadeInOut = new FadeInOutSampleProvider(file);
+            fadeInOut = new FadeInOutSampleProvider(new AudioFileReader(@path));
             wavePlayer.Init(fadeInOut);
         }
 
@@ -36,10 +31,19 @@ namespace WordPlayer.AudioPlayer
             wavePlayer.Pause();
         }
 
-        public void ToStart()
+        public void Stop()
         {
-            player.Play();
+            wavePlayer.Stop();
         }
 
+        public void Forward()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Reverse()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

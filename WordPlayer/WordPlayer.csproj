@@ -179,9 +179,8 @@
     can be found.
   -->
   <ItemGroup>
-    <Compile Include="AudioPlayer\AudioFile.cs" />
-    <Compile Include="AudioPlayer\IAudioFile.cs" />
-    <Compile Include="AudioPlayer\TestPlayAudio.cs" />
+    <Compile Include="Controller\AudioFileController.cs" />
+    <Compile Include="Controller\IAudioFileController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

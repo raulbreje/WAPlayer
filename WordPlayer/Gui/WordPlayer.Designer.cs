@@ -47,7 +47,7 @@
             // 
             this.tab_wordPlayer.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
             this.tab_wordPlayer.Groups.Add(this.group1);
-            this.tab_wordPlayer.Label = "Word Player";
+            this.tab_wordPlayer.Label = "Word Audio Player";
             this.tab_wordPlayer.Name = "tab_wordPlayer";
             // 
             // group1

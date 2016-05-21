@@ -11,16 +11,24 @@ namespace WordPlayer
     public partial class WordPlayer
     {
 
-        private IAudioFile audioFile = null;
-        private string fileName;
+        private IAudioFileController audioFile = null;
 
         private void WordPlayer_Load(object sender, RibbonUIEventArgs e)
         {
-            //btn_play.Click += new EventHandler(btn_play_KeyPress);
+
         }
 
         private void btn_play_Click(object sender, RibbonControlEventArgs e)
         {
+            if (audioFile == null)
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Audio Files|*.mp3;*.wav;*.aiff";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    audioFile = new AudioFileController(ofd.FileName);
+                }
+            }
             audioFile.Play();
         }
 
@@ -34,19 +42,25 @@ namespace WordPlayer
 
         private void btn_pause_Click(object sender, RibbonControlEventArgs e)
         {
-            audioFile.Pause();
+            if (audioFile != null)
+            {
+                audioFile.Pause();
+            }
         }
 
         private void btn_open_Click(object sender, RibbonControlEventArgs e)
         {
-                OpenFileDialog ofd = new OpenFileDialog();
-                ofd.Filter = "Audio Files|*.mp3;*.wav;*.aiff";
-
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    this.fileName = ofd.FileName;
-                }
-            audioFile = new AudioFile(fileName);
+            if (audioFile != null)
+            {
+                audioFile.Stop();
+                audioFile = null;
+            }
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Audio Files|*.mp3;*.wav;*.aiff";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                audioFile = new AudioFileController(ofd.FileName);
+            }
         }
     }
 }

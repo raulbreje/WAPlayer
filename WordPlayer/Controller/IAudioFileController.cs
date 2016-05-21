@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace WordPlayer.AudioPlayer
 {
-    interface IAudioFile
+    interface IAudioFileController
     {
+
         void Play();
 
         void Pause();
 
-        void ToStart();
+        void Stop();
+
+        void Forward();
+
+        void Reverse();
+
     }
 }
