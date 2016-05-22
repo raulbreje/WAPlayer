@@ -1,24 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Office.Tools.Ribbon;
 using WordPlayer.AudioPlayer;
 using System.Windows.Forms;
+using WordPlayer.Gui;
+using System.Runtime.InteropServices;
 
 namespace WordPlayer
 {
     public partial class WordPlayer
     {
 
-        private IAudioFileController audioFile = null;
+        private static IAudioFileController audioFile = null;
 
         private void WordPlayer_Load(object sender, RibbonUIEventArgs e)
         {
 
         }
 
-        private void btn_play_Click(object sender, RibbonControlEventArgs e)
+        public static void close()
+        {
+            audioFile.Dispose();
+            audioFile = null;   
+        }
+        
+        public void btn_play_Click(object sender, RibbonControlEventArgs e)
         {
             if (audioFile == null)
             {
@@ -30,14 +35,6 @@ namespace WordPlayer
                 }
             }
             audioFile.Play();
-        }
-
-        private void btn_play_KeyPress(Object sender, KeyEventArgs e)
-        {
-            if (e.Control && e.Shift && e.KeyCode == Keys.Q)
-            {
-                audioFile.Play();
-            }
         }
 
         private void btn_pause_Click(object sender, RibbonControlEventArgs e)
@@ -60,6 +57,14 @@ namespace WordPlayer
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 audioFile = new AudioFileController(ofd.FileName);
+            }
+        }
+
+        private void btn_about_Click(object sender, RibbonControlEventArgs e)
+        {
+            using (AboutPanel about = new AboutPanel())
+            {
+                about.ShowDialog();
             }
         }
     }

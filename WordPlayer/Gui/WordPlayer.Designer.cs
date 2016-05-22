@@ -39,14 +39,22 @@
             this.btn_play = this.Factory.CreateRibbonButton();
             this.btn_pause = this.Factory.CreateRibbonButton();
             this.btn_open = this.Factory.CreateRibbonButton();
+            this.group_player = this.Factory.CreateRibbonGroup();
+            this.group_preferences = this.Factory.CreateRibbonGroup();
+            this.btn_help = this.Factory.CreateRibbonButton();
+            this.btn_settings = this.Factory.CreateRibbonButton();
+            this.btn_about = this.Factory.CreateRibbonButton();
             this.tab_wordPlayer.SuspendLayout();
             this.group1.SuspendLayout();
+            this.group_preferences.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab_wordPlayer
             // 
             this.tab_wordPlayer.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
             this.tab_wordPlayer.Groups.Add(this.group1);
+            this.tab_wordPlayer.Groups.Add(this.group_player);
+            this.tab_wordPlayer.Groups.Add(this.group_preferences);
             this.tab_wordPlayer.Label = "Word Audio Player";
             this.tab_wordPlayer.Name = "tab_wordPlayer";
             // 
@@ -76,6 +84,35 @@
             this.btn_open.Name = "btn_open";
             this.btn_open.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_open_Click);
             // 
+            // group_player
+            // 
+            this.group_player.Label = "Player";
+            this.group_player.Name = "group_player";
+            // 
+            // group_preferences
+            // 
+            this.group_preferences.Items.Add(this.btn_help);
+            this.group_preferences.Items.Add(this.btn_settings);
+            this.group_preferences.Items.Add(this.btn_about);
+            this.group_preferences.Label = "Preferences";
+            this.group_preferences.Name = "group_preferences";
+            // 
+            // btn_help
+            // 
+            this.btn_help.Label = "Help";
+            this.btn_help.Name = "btn_help";
+            // 
+            // btn_settings
+            // 
+            this.btn_settings.Label = "Settings";
+            this.btn_settings.Name = "btn_settings";
+            // 
+            // btn_about
+            // 
+            this.btn_about.Label = "About";
+            this.btn_about.Name = "btn_about";
+            this.btn_about.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_about_Click);
+            // 
             // WordPlayer
             // 
             this.Name = "WordPlayer";
@@ -86,6 +123,8 @@
             this.tab_wordPlayer.PerformLayout();
             this.group1.ResumeLayout(false);
             this.group1.PerformLayout();
+            this.group_preferences.ResumeLayout(false);
+            this.group_preferences.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -97,6 +136,11 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_play;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_pause;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_open;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup group_player;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup group_preferences;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_help;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_settings;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_about;
     }
 
     partial class ThisRibbonCollection

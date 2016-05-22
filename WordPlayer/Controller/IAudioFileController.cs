@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WordPlayer.AudioPlayer
+﻿namespace WordPlayer.AudioPlayer
 {
     interface IAudioFileController
     {
@@ -18,6 +12,8 @@ namespace WordPlayer.AudioPlayer
         void Forward();
 
         void Reverse();
+
+        void Dispose();
 
     }
 }

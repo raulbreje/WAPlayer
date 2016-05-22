@@ -1,11 +1,6 @@
 ﻿using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Media;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WordPlayer.AudioPlayer
 {
@@ -44,6 +39,11 @@ namespace WordPlayer.AudioPlayer
         public void Reverse()
         {
             throw new NotImplementedException();
+        }
+
+        public void Dispose()
+        {
+            wavePlayer.Dispose();
         }
     }
 }

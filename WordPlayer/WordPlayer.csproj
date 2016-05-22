@@ -181,6 +181,12 @@
   <ItemGroup>
     <Compile Include="Controller\AudioFileController.cs" />
     <Compile Include="Controller\IAudioFileController.cs" />
+    <Compile Include="Gui\AboutPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\AboutPanel.Designer.cs">
+      <DependentUpon>AboutPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -190,6 +196,10 @@
     <Compile Include="Gui\WordPlayer.Designer.cs">
       <DependentUpon>WordPlayer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\InterceptKeys.cs" />
+    <EmbeddedResource Include="Gui\AboutPanel.resx">
+      <DependentUpon>AboutPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -198,6 +208,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Gui\WordPlayer.resx">
       <DependentUpon>WordPlayer.cs</DependentUpon>
@@ -226,6 +237,9 @@
       <Project>{da4f02e3-0b5e-42cd-b8d9-5583fa51d66e}</Project>
       <Name>NAudio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Drawing.png" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
