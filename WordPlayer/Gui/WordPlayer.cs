@@ -15,11 +15,18 @@ namespace WordPlayer
 
         private void WordPlayer_Load(object sender, RibbonUIEventArgs e)
         {
-
-            RibbonDropDownItem r1 = Globals.Factory.GetRibbonFactory().CreateRibbonDropDownItem();
-            r1.Label = AppHelper.PLAY_SPEED_1;
-            comboBox_speed.Items.Add(r1);
-
+            //RibbonDropDownItem r1 = Globals.Factory.GetRibbonFactory().CreateRibbonDropDownItem();
+            //r1.Label = AppHelper.PLAY_SPEED_1;
+            //RibbonDropDownItem r2 = Globals.Factory.GetRibbonFactory().CreateRibbonDropDownItem();
+            //r2.Label = AppHelper.PLAY_SPEED_2;
+            //RibbonDropDownItem r3 = Globals.Factory.GetRibbonFactory().CreateRibbonDropDownItem();
+            //r3.Label = AppHelper.PLAY_SPEED_3;
+            //RibbonDropDownItem r4 = Globals.Factory.GetRibbonFactory().CreateRibbonDropDownItem();
+            //r4.Label = AppHelper.PLAY_SPEED_4;
+            //dropDown_speed.Items.Add(r2);
+            //dropDown_speed.Items.Add(r1);
+            //dropDown_speed.Items.Add(r3);
+            //dropDown_speed.Items.Add(r4);
         }
 
         public static void close()

@@ -247,6 +247,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Drawing.png" />
+    <None Include="Resources\open_btn_image_x18.png" />
+    <None Include="Resources\pause_btn_image_x18.png" />
+    <None Include="Resources\play_btn_image_x18.png" />
+    <None Include="Resources\pause_btn_image.png" />
     <None Include="Resources\play_btn_image.png" />
   </ItemGroup>
   <PropertyGroup>
