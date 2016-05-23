@@ -78,5 +78,15 @@ namespace WordPlayer.Properties {
                 return ResourceManager.GetString("main_logo", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap play_btn_image {
+            get {
+                object obj = ResourceManager.GetObject("play_btn_image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

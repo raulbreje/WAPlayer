@@ -9,6 +9,8 @@ using System.Runtime.InteropServices;
 using Microsoft.Office.Core;
 using Microsoft.Office.Interop.Word;
 using Word = Microsoft.Office.Interop.Word;
+using System.Threading;
+using WordPlayer.AudioPlayer;
 
 namespace WordPlayer.Utils
 {
@@ -17,16 +19,11 @@ namespace WordPlayer.Utils
         public delegate int LowLevelKeyboardProc(int nCode, IntPtr wParam, IntPtr lParam);
         private static LowLevelKeyboardProc _proc = HookCallback;
         private static IntPtr _hookID = IntPtr.Zero;
-        private static Microsoft.Office.Tools.CustomTaskPane ctpRef = null;
-
-        //Declare the mouse hook constant.
-        //For other hook types, you can obtain these values from Winuser.h in the Microsoft SDK.            
-
         private const int WH_KEYBOARD = 2;
         private const int HC_ACTION = 0;
-
+        
         public static void SetHook()
-        {
+        {    
             _hookID = SetWindowsHookEx(WH_KEYBOARD, _proc, IntPtr.Zero, (uint) AppDomain.GetCurrentThreadId());
         }
 
@@ -39,7 +36,7 @@ namespace WordPlayer.Utils
         {
             int PreviousStateBit = 31;
             bool KeyWasAlreadyPressed = false;
-            Int64 bitmask = (Int64)Math.Pow(2, (PreviousStateBit - 1));
+            Int64 bitmask = (Int64) Math.Pow(2, (PreviousStateBit - 1));
             try
             {
                 if (nCode < 0)
@@ -51,25 +48,22 @@ namespace WordPlayer.Utils
                     if (nCode == HC_ACTION)
                     {
                         Keys keyData = (Keys) wParam;
-                        KeyWasAlreadyPressed = ((Int64)lParam & bitmask) > 0;
+                        KeyWasAlreadyPressed = ((Int64) lParam & bitmask) > 0;
 
                         if (Functions.IsKeyDown(Keys.ControlKey) && KeyWasAlreadyPressed == false)
                         {
                             switch (keyData)
                             {
                                 case Keys.D1:
-                                    MessageBox.Show("Key press 1 as shortcut");
+                                    MessageBox.Show("Key press 1 as shortcut"+ (uint) Thread.CurrentThread.ManagedThreadId + " " + (int) Thread.CurrentThread.ManagedThreadId);
+                                    break;
+                                case Keys.D:
+                                    MessageBox.Show("Key press D as shortcut");
                                     break;
                                 case Keys.D2:
                                     MessageBox.Show("Key press 2 as shortcut");
                                     break;
                             }
-                            object missing = System.Reflection.Missing.Value;
-                            Word.Document document = Globals.ThisAddIn.Application.ActiveDocument;
-                            Word.Range rng = document.Range(0, 0);
-                            rng.Text = "";
-                            //exSheet.get_Range("A4", missing).Value2 = exSheet.get_Range("A4", missing).Value2 + "A";
-
                         }
                     }
                     return (int) CallNextHookEx(_hookID, nCode, wParam, lParam);
@@ -78,7 +72,7 @@ namespace WordPlayer.Utils
             catch (Exception ex)
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
-                return (int)CallNextHookEx(_hookID, nCode, wParam, lParam);
+                return (int) CallNextHookEx(_hookID, nCode, wParam, lParam);
             }
         }
 

@@ -4,6 +4,7 @@ using WordPlayer.AudioPlayer;
 using System.Windows.Forms;
 using WordPlayer.Gui;
 using System.Runtime.InteropServices;
+using WordPlayer.Utils;
 
 namespace WordPlayer
 {
@@ -14,6 +15,10 @@ namespace WordPlayer
 
         private void WordPlayer_Load(object sender, RibbonUIEventArgs e)
         {
+
+            RibbonDropDownItem r1 = Globals.Factory.GetRibbonFactory().CreateRibbonDropDownItem();
+            r1.Label = AppHelper.PLAY_SPEED_1;
+            comboBox_speed.Items.Add(r1);
 
         }
 
@@ -65,6 +70,21 @@ namespace WordPlayer
             using (AboutPanel about = new AboutPanel())
             {
                 about.ShowDialog();
+            }
+        }
+        private void btn_about_KeyPress(object sender, RibbonControlEventArgs e)
+        {
+            using (AboutPanel about = new AboutPanel())
+            {
+                about.ShowDialog();
+            }
+        }
+
+        private void btn_help_Click(object sender, RibbonControlEventArgs e)
+        {
+            using (TestHelp test = new TestHelp())
+            {
+                test.ShowDialog();
             }
         }
     }
