@@ -14,6 +14,7 @@ namespace WordPlayer
             : base(Globals.Factory.GetRibbonFactory())
         {
             InitializeComponent();
+
         }
 
         /// <summary> 
@@ -37,18 +38,22 @@ namespace WordPlayer
         /// </summary>
         private void InitializeComponent()
         {
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl1 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl2 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl3 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl4 = this.Factory.CreateRibbonDropDownItem();
             this.tab_wordPlayer = this.Factory.CreateRibbonTab();
             this.group_customization = this.Factory.CreateRibbonGroup();
+            this.btn_open = this.Factory.CreateRibbonButton();
+            this.dropDown_speed = this.Factory.CreateRibbonDropDown();
             this.group_player = this.Factory.CreateRibbonGroup();
             this.buttonGroup1 = this.Factory.CreateRibbonButtonGroup();
-            this.btn_open = this.Factory.CreateRibbonButton();
             this.btn_play = this.Factory.CreateRibbonButton();
             this.btn_pause = this.Factory.CreateRibbonButton();
             this.group_preferences = this.Factory.CreateRibbonGroup();
             this.btn_help = this.Factory.CreateRibbonButton();
             this.btn_settings = this.Factory.CreateRibbonButton();
             this.btn_about = this.Factory.CreateRibbonButton();
-            this.dropDown_speed = this.Factory.CreateRibbonDropDown();
             this.tab_wordPlayer.SuspendLayout();
             this.group_customization.SuspendLayout();
             this.group_player.SuspendLayout();
@@ -72,6 +77,27 @@ namespace WordPlayer
             this.group_customization.Label = "Customization";
             this.group_customization.Name = "group_customization";
             // 
+            // btn_open
+            // 
+            this.btn_open.Image = global::WordPlayer.Properties.Resources.open_btn_image_x18;
+            this.btn_open.Label = "Open";
+            this.btn_open.Name = "btn_open";
+            this.btn_open.ShowImage = true;
+            this.btn_open.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_open_Click);
+            // 
+            // dropDown_speed
+            // 
+            ribbonDropDownItemImpl1.Label = "1";
+            ribbonDropDownItemImpl2.Label = "0.5";
+            ribbonDropDownItemImpl3.Label = "1.5";
+            ribbonDropDownItemImpl4.Label = "2";
+            this.dropDown_speed.Items.Add(ribbonDropDownItemImpl1);
+            this.dropDown_speed.Items.Add(ribbonDropDownItemImpl2);
+            this.dropDown_speed.Items.Add(ribbonDropDownItemImpl3);
+            this.dropDown_speed.Items.Add(ribbonDropDownItemImpl4);
+            this.dropDown_speed.Label = "Speed";
+            this.dropDown_speed.Name = "dropDown_speed";
+            // 
             // group_player
             // 
             this.group_player.Items.Add(this.buttonGroup1);
@@ -83,14 +109,6 @@ namespace WordPlayer
             this.buttonGroup1.Items.Add(this.btn_play);
             this.buttonGroup1.Items.Add(this.btn_pause);
             this.buttonGroup1.Name = "buttonGroup1";
-            // 
-            // btn_open
-            // 
-            this.btn_open.Image = global::WordPlayer.Properties.Resources.open_btn_image_x18;
-            this.btn_open.Label = "Open";
-            this.btn_open.Name = "btn_open";
-            this.btn_open.ShowImage = true;
-            this.btn_open.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_open_Click);
             // 
             // btn_play
             // 
@@ -126,17 +144,13 @@ namespace WordPlayer
             // 
             this.btn_settings.Label = "Settings";
             this.btn_settings.Name = "btn_settings";
+            this.btn_settings.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_settings_Click);
             // 
             // btn_about
             // 
             this.btn_about.Label = "About";
             this.btn_about.Name = "btn_about";
             this.btn_about.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_about_Click);
-            // 
-            // dropDown_speed
-            // 
-            this.dropDown_speed.Label = "Speed";
-            this.dropDown_speed.Name = "dropDown_speed";
             // 
             // WordPlayer
             // 
@@ -155,22 +169,6 @@ namespace WordPlayer
             this.group_preferences.ResumeLayout(false);
             this.group_preferences.PerformLayout();
             this.ResumeLayout(false);
-
-            //
-            // Custom Breje
-            // 
-            RibbonDropDownItem r1 = Globals.Factory.GetRibbonFactory().CreateRibbonDropDownItem();
-            r1.Label = AppHelper.PLAY_SPEED_1;
-            RibbonDropDownItem r2 = Globals.Factory.GetRibbonFactory().CreateRibbonDropDownItem();
-            r2.Label = AppHelper.PLAY_SPEED_2;
-            RibbonDropDownItem r3 = Globals.Factory.GetRibbonFactory().CreateRibbonDropDownItem();
-            r3.Label = AppHelper.PLAY_SPEED_3;
-            RibbonDropDownItem r4 = Globals.Factory.GetRibbonFactory().CreateRibbonDropDownItem();
-            r4.Label = AppHelper.PLAY_SPEED_4;
-            dropDown_speed.Items.Add(r2);
-            dropDown_speed.Items.Add(r1);
-            dropDown_speed.Items.Add(r3);
-            dropDown_speed.Items.Add(r4);
 
         }
 

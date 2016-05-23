@@ -5,6 +5,9 @@ using System.Windows.Forms;
 using WordPlayer.Gui;
 using System.Runtime.InteropServices;
 using WordPlayer.Utils;
+using System.Reflection;
+using System.Linq;
+using System.Threading;
 
 namespace WordPlayer
 {
@@ -12,21 +15,45 @@ namespace WordPlayer
     {
 
         private static IAudioFileController audioFile = null;
+        private SynchronizationContext sContext = null;
+        KeyboardHook hook = new KeyboardHook();
 
         private void WordPlayer_Load(object sender, RibbonUIEventArgs e)
         {
-            //RibbonDropDownItem r1 = Globals.Factory.GetRibbonFactory().CreateRibbonDropDownItem();
-            //r1.Label = AppHelper.PLAY_SPEED_1;
-            //RibbonDropDownItem r2 = Globals.Factory.GetRibbonFactory().CreateRibbonDropDownItem();
-            //r2.Label = AppHelper.PLAY_SPEED_2;
-            //RibbonDropDownItem r3 = Globals.Factory.GetRibbonFactory().CreateRibbonDropDownItem();
-            //r3.Label = AppHelper.PLAY_SPEED_3;
-            //RibbonDropDownItem r4 = Globals.Factory.GetRibbonFactory().CreateRibbonDropDownItem();
-            //r4.Label = AppHelper.PLAY_SPEED_4;
-            //dropDown_speed.Items.Add(r2);
-            //dropDown_speed.Items.Add(r1);
-            //dropDown_speed.Items.Add(r3);
-            //dropDown_speed.Items.Add(r4);
+            sContext = SynchronizationContext.Current;
+            // register the event that is fired after the key press.
+            hook.KeyPressed +=
+                new EventHandler<KeyPressedEventArgs>(hook_KeyPressed);
+            // register the control + alt + F12 combination as hot key.
+            hook.RegisterHotKey(ModifierKeys.Control, Keys.D1);
+            hook.RegisterHotKey(ModifierKeys.Control, Keys.D2);
+        }
+
+        private void hook_KeyPressed(object sender, KeyPressedEventArgs e)
+        {
+            // show the keys pressed in a label.
+            Keys keys = e.Key;
+            switch (keys)
+            {
+                case (Keys.D1):
+                    if (audioFile == null)
+                    {
+                        OpenFileDialog ofd = new OpenFileDialog();
+                        ofd.Filter = "Audio Files|*.mp3;*.wav;*.aiff";
+                        if (ofd.ShowDialog() == DialogResult.OK)
+                        {
+                            audioFile = new AudioFileController(ofd.FileName);
+                        }
+                    }
+                    audioFile.Play();
+                    break;
+                case (Keys.D2):
+                    if (audioFile != null)
+                    {
+                        audioFile.Pause();
+                    }
+                    break;
+            }
         }
 
         public static void close()
@@ -93,6 +120,16 @@ namespace WordPlayer
             {
                 test.ShowDialog();
             }
+        }
+
+        private void btn_settings_Click(object sender, RibbonControlEventArgs e)
+        {
+            using (ShortcutMenu frm2 = new ShortcutMenu()) {
+                frm2.WindowState = FormWindowState.Minimized;
+                frm2.ShowInTaskbar = false;
+                frm2.ShowDialog();
+            }
+            
         }
     }
 }

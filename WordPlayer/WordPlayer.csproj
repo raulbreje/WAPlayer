@@ -136,6 +136,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -187,6 +188,12 @@
     <Compile Include="Gui\AboutPanel.Designer.cs">
       <DependentUpon>AboutPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\ShortcutMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\ShortcutMenu.Designer.cs">
+      <DependentUpon>ShortcutMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\TestHelp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,9 +210,15 @@
       <DependentUpon>WordPlayer.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\AppHelper.cs" />
-    <Compile Include="Utils\InterceptKeys.cs" />
+    <Compile Include="Utils\KeyboardHook.cs" />
     <EmbeddedResource Include="Gui\AboutPanel.resx">
       <DependentUpon>AboutPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ShortcutMenu.resx">
+      <DependentUpon>ShortcutMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\TestHelp.resx">
+      <DependentUpon>TestHelp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
