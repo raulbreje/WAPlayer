@@ -36,15 +36,7 @@ namespace WordPlayer
             switch (keys)
             {
                 case (Keys.D1):
-                    if (audioFile == null)
-                    {
-                        OpenFileDialog ofd = new OpenFileDialog();
-                        ofd.Filter = "Audio Files|*.mp3;*.wav;*.aiff";
-                        if (ofd.ShowDialog() == DialogResult.OK)
-                        {
-                            audioFile = new AudioFileController(ofd.FileName);
-                        }
-                    }
+                    OpenFileDiag();
                     audioFile.Play();
                     break;
                 case (Keys.D2):
@@ -61,18 +53,23 @@ namespace WordPlayer
             audioFile.Dispose();
             audioFile = null;   
         }
-        
-        public void btn_play_Click(object sender, RibbonControlEventArgs e)
+
+        private void OpenFileDiag()
         {
             if (audioFile == null)
             {
                 OpenFileDialog ofd = new OpenFileDialog();
-                ofd.Filter = "Audio Files|*.mp3;*.wav;*.aiff";
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    audioFile = new AudioFileController(ofd.FileName);
-                }
+            ofd.Filter = "Audio Files|*.mp3;*.wav;*.aiff";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                audioFile = new AudioFileController(ofd.FileName);
             }
+            }
+        }
+        
+        public void btn_play_Click(object sender, RibbonControlEventArgs e)
+        {
+            OpenFileDiag();
             audioFile.Play();
         }
 
@@ -125,9 +122,7 @@ namespace WordPlayer
         private void btn_settings_Click(object sender, RibbonControlEventArgs e)
         {
             using (ShortcutMenu frm2 = new ShortcutMenu()) {
-                frm2.WindowState = FormWindowState.Minimized;
-                frm2.ShowInTaskbar = false;
-                frm2.ShowDialog();
+                frm2.Show();
             }
             
         }

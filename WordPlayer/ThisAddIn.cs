@@ -8,12 +8,10 @@ namespace WordPlayer
 
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {   
-            //InterceptKeys.SetHook();
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {
-            //InterceptKeys.ReleaseHook();
             WordPlayer.close();
         }
 

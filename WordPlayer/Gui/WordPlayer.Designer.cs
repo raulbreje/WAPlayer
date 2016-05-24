@@ -42,6 +42,7 @@ namespace WordPlayer
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl2 = this.Factory.CreateRibbonDropDownItem();
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl3 = this.Factory.CreateRibbonDropDownItem();
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl4 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDialogLauncher ribbonDialogLauncherImpl1 = this.Factory.CreateRibbonDialogLauncher();
             this.tab_wordPlayer = this.Factory.CreateRibbonTab();
             this.group_customization = this.Factory.CreateRibbonGroup();
             this.btn_open = this.Factory.CreateRibbonButton();
@@ -100,6 +101,7 @@ namespace WordPlayer
             // 
             // group_player
             // 
+            this.group_player.DialogLauncher = ribbonDialogLauncherImpl1;
             this.group_player.Items.Add(this.buttonGroup1);
             this.group_player.Label = "Player";
             this.group_player.Name = "group_player";
