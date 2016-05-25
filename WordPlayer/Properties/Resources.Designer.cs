@@ -71,6 +71,26 @@ namespace WordPlayer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap forward_btn_image_x18 {
+            get {
+                object obj = ResourceManager.GetObject("forward_btn_image_x18", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap google_drive_image_x18 {
+            get {
+                object obj = ResourceManager.GetObject("google_drive_image_x18", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Resources/Drawing.png.
         /// </summary>
         internal static string main_logo {
@@ -92,16 +112,6 @@ namespace WordPlayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pause_btn_image {
-            get {
-                object obj = ResourceManager.GetObject("pause_btn_image", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap pause_btn_image_x18 {
             get {
                 object obj = ResourceManager.GetObject("pause_btn_image_x18", resourceCulture);
@@ -112,9 +122,9 @@ namespace WordPlayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap play_btn_image {
+        internal static System.Drawing.Bitmap play_btn_image_x18 {
             get {
-                object obj = ResourceManager.GetObject("play_btn_image", resourceCulture);
+                object obj = ResourceManager.GetObject("play_btn_image_x18", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -122,9 +132,9 @@ namespace WordPlayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap play_btn_image_x18 {
+        internal static System.Drawing.Bitmap rewind_btn_image_x18 {
             get {
-                object obj = ResourceManager.GetObject("play_btn_image_x18", resourceCulture);
+                object obj = ResourceManager.GetObject("rewind_btn_image_x18", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

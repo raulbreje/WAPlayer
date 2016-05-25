@@ -31,7 +31,6 @@ namespace WordPlayer
 
         private void hook_KeyPressed(object sender, KeyPressedEventArgs e)
         {
-            // show the keys pressed in a label.
             Keys keys = e.Key;
             switch (keys)
             {
@@ -59,11 +58,11 @@ namespace WordPlayer
             if (audioFile == null)
             {
                 OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Audio Files|*.mp3;*.wav;*.aiff";
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                audioFile = new AudioFileController(ofd.FileName);
-            }
+                ofd.Filter = "Audio Files|*.mp3;*.wav;*.aiff";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    audioFile = new AudioFileController(ofd.FileName);
+                }
             }
         }
         
@@ -113,7 +112,7 @@ namespace WordPlayer
 
         private void btn_help_Click(object sender, RibbonControlEventArgs e)
         {
-            using (TestHelp test = new TestHelp())
+            using (HelpMenu test = new HelpMenu())
             {
                 test.ShowDialog();
             }
@@ -121,10 +120,18 @@ namespace WordPlayer
 
         private void btn_settings_Click(object sender, RibbonControlEventArgs e)
         {
-            using (ShortcutMenu frm2 = new ShortcutMenu()) {
-                frm2.Show();
-            }
-            
+            WAStandalone frm2 = new WAStandalone();
+            frm2.Show();
+        }
+
+        private void btn_rewind_Click(object sender, RibbonControlEventArgs e)
+        {
+
+        }
+
+        private void btn_forward_Click(object sender, RibbonControlEventArgs e)
+        {
+
         }
     }
 }

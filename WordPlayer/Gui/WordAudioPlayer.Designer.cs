@@ -38,19 +38,25 @@ namespace WordPlayer
         /// </summary>
         private void InitializeComponent()
         {
+            Microsoft.Office.Tools.Ribbon.RibbonDialogLauncher ribbonDialogLauncherImpl1 = this.Factory.CreateRibbonDialogLauncher();
+            Microsoft.Office.Tools.Ribbon.RibbonDialogLauncher ribbonDialogLauncherImpl2 = this.Factory.CreateRibbonDialogLauncher();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WordPlayer));
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl1 = this.Factory.CreateRibbonDropDownItem();
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl2 = this.Factory.CreateRibbonDropDownItem();
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl3 = this.Factory.CreateRibbonDropDownItem();
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl4 = this.Factory.CreateRibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDialogLauncher ribbonDialogLauncherImpl1 = this.Factory.CreateRibbonDialogLauncher();
+            Microsoft.Office.Tools.Ribbon.RibbonDialogLauncher ribbonDialogLauncherImpl3 = this.Factory.CreateRibbonDialogLauncher();
             this.tab_wordPlayer = this.Factory.CreateRibbonTab();
             this.group_customization = this.Factory.CreateRibbonGroup();
             this.btn_open = this.Factory.CreateRibbonButton();
-            this.dropDown_speed = this.Factory.CreateRibbonDropDown();
+            this.btn_googleDriveAPI = this.Factory.CreateRibbonButton();
             this.group_player = this.Factory.CreateRibbonGroup();
             this.buttonGroup1 = this.Factory.CreateRibbonButtonGroup();
+            this.btn_rewind = this.Factory.CreateRibbonButton();
             this.btn_play = this.Factory.CreateRibbonButton();
             this.btn_pause = this.Factory.CreateRibbonButton();
+            this.btn_forward = this.Factory.CreateRibbonButton();
+            this.dropDown_speed = this.Factory.CreateRibbonDropDown();
             this.group_preferences = this.Factory.CreateRibbonGroup();
             this.btn_help = this.Factory.CreateRibbonButton();
             this.btn_settings = this.Factory.CreateRibbonButton();
@@ -73,8 +79,9 @@ namespace WordPlayer
             // 
             // group_customization
             // 
+            this.group_customization.DialogLauncher = ribbonDialogLauncherImpl1;
             this.group_customization.Items.Add(this.btn_open);
-            this.group_customization.Items.Add(this.dropDown_speed);
+            this.group_customization.Items.Add(this.btn_googleDriveAPI);
             this.group_customization.Label = "Customization";
             this.group_customization.Name = "group_customization";
             // 
@@ -86,31 +93,38 @@ namespace WordPlayer
             this.btn_open.ShowImage = true;
             this.btn_open.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_open_Click);
             // 
-            // dropDown_speed
+            // btn_googleDriveAPI
             // 
-            ribbonDropDownItemImpl1.Label = "1";
-            ribbonDropDownItemImpl2.Label = "0.5";
-            ribbonDropDownItemImpl3.Label = "1.5";
-            ribbonDropDownItemImpl4.Label = "2";
-            this.dropDown_speed.Items.Add(ribbonDropDownItemImpl1);
-            this.dropDown_speed.Items.Add(ribbonDropDownItemImpl2);
-            this.dropDown_speed.Items.Add(ribbonDropDownItemImpl3);
-            this.dropDown_speed.Items.Add(ribbonDropDownItemImpl4);
-            this.dropDown_speed.Label = "Speed";
-            this.dropDown_speed.Name = "dropDown_speed";
+            this.btn_googleDriveAPI.Image = global::WordPlayer.Properties.Resources.google_drive_image_x18;
+            this.btn_googleDriveAPI.Label = "Connect to Google Drive";
+            this.btn_googleDriveAPI.Name = "btn_googleDriveAPI";
+            this.btn_googleDriveAPI.ScreenTip = "Connect to your Google Drive";
+            this.btn_googleDriveAPI.ShowImage = true;
             // 
             // group_player
             // 
-            this.group_player.DialogLauncher = ribbonDialogLauncherImpl1;
+            this.group_player.DialogLauncher = ribbonDialogLauncherImpl2;
             this.group_player.Items.Add(this.buttonGroup1);
+            this.group_player.Items.Add(this.dropDown_speed);
             this.group_player.Label = "Player";
             this.group_player.Name = "group_player";
+            this.group_player.DialogLauncherClick += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_settings_Click);
             // 
             // buttonGroup1
             // 
+            this.buttonGroup1.Items.Add(this.btn_rewind);
             this.buttonGroup1.Items.Add(this.btn_play);
             this.buttonGroup1.Items.Add(this.btn_pause);
+            this.buttonGroup1.Items.Add(this.btn_forward);
             this.buttonGroup1.Name = "buttonGroup1";
+            // 
+            // btn_rewind
+            // 
+            this.btn_rewind.Image = global::WordPlayer.Properties.Resources.rewind_btn_image_x18;
+            this.btn_rewind.Label = "Rewind";
+            this.btn_rewind.Name = "btn_rewind";
+            this.btn_rewind.ShowImage = true;
+            this.btn_rewind.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_rewind_Click);
             // 
             // btn_play
             // 
@@ -128,8 +142,30 @@ namespace WordPlayer
             this.btn_pause.ShowImage = true;
             this.btn_pause.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_pause_Click);
             // 
+            // btn_forward
+            // 
+            this.btn_forward.Image = ((System.Drawing.Image)(resources.GetObject("btn_forward.Image")));
+            this.btn_forward.Label = "Forward";
+            this.btn_forward.Name = "btn_forward";
+            this.btn_forward.ShowImage = true;
+            this.btn_forward.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_forward_Click);
+            // 
+            // dropDown_speed
+            // 
+            ribbonDropDownItemImpl1.Label = "1";
+            ribbonDropDownItemImpl2.Label = "0.5";
+            ribbonDropDownItemImpl3.Label = "1.5";
+            ribbonDropDownItemImpl4.Label = "2";
+            this.dropDown_speed.Items.Add(ribbonDropDownItemImpl1);
+            this.dropDown_speed.Items.Add(ribbonDropDownItemImpl2);
+            this.dropDown_speed.Items.Add(ribbonDropDownItemImpl3);
+            this.dropDown_speed.Items.Add(ribbonDropDownItemImpl4);
+            this.dropDown_speed.Label = "Speed";
+            this.dropDown_speed.Name = "dropDown_speed";
+            // 
             // group_preferences
             // 
+            this.group_preferences.DialogLauncher = ribbonDialogLauncherImpl3;
             this.group_preferences.Items.Add(this.btn_help);
             this.group_preferences.Items.Add(this.btn_settings);
             this.group_preferences.Items.Add(this.btn_about);
@@ -188,6 +224,9 @@ namespace WordPlayer
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_about;
         internal Microsoft.Office.Tools.Ribbon.RibbonButtonGroup buttonGroup1;
         internal Microsoft.Office.Tools.Ribbon.RibbonDropDown dropDown_speed;
+        internal RibbonButton btn_googleDriveAPI;
+        internal RibbonButton btn_rewind;
+        internal RibbonButton btn_forward;
     }
 
     partial class ThisRibbonCollection

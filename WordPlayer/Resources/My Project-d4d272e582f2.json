@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "profound-coda-132223",
+  "private_key_id": "d4d272e582f2ad27ecf9cbbf88870e88ed465276",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCR8FgGaiYokycx\nKzkZLd5phV/jZFWgtxprThFKbKC4waDARXyBUBS7EgmrxdLtwEX60jhkp2dc6QUm\nVmYcIh9yedLBHE4W3LcE5QIg0CdbRRk0eJgTuVSrHHod2DpWmfALrownIsOvCrHJ\n9GiZ30oZZ4q+iamlfnS08B2Ieditt9fEWOCg9GIfQ+gGt6HLbmYXteUIxf63c2Nj\nn9frTNIiteNOU77sL6gc5mwaL5UWKGpxDevzsNvzknwGB6hafUGTbrkpkb1Lrxgl\nVvnyR31RWRDCSAxM75WgUmTZDRe/5hxrpvTllNz+y2xNL76JJOK0bCJqh+ejuYkf\nikYGNpTLAgMBAAECggEAH0O2F+m1swuTYd04pkRFWaXRHQ3pqjyP1F0tJxyOcgZJ\nQeeg/LMDPfBnUf1Xase+NjXDDw0t/6GMEOKBjZVh10xx8hz2Pb+bFdlZ013EkLEE\n7VDIg7E4ik/XeX1RQixIWLhUHi48bcuEuxc5MX28iiS8fIVRarrklb67FPnFibF9\nQ36ORMFW8NMdDB8Kr9OVHrnpIqbu8Fo9KM0by6rmT/ZQ5tXXB58/dwHFT33jM2h/\ng6BDMtIaBgaOIICufBvXn1cT9lxuLVEfLicOqPOvO++YF8k0aE80HlOw2UwnFEfA\nmUdXhkdycZhMdzvhWR2J0nbfr+q7z+BblMrljBNhwQKBgQDfJtRNELQjqZ/FouEJ\nuEIzvpEzhvYbHPiACSI36DQPWKwKrzCjOnaCHC/OJCMm6Ssvurn4KqzaZdWv3+UK\nxLStWm4RO4hAcOt638fdaCUA04h0eahm5OJvC/xW/GCkYJXv3c84H3HvRktW9Sxq\nkYqj65ZfLWileIVyQA5DaYsc3QKBgQCna9pQsfQtyn/aDY4ecNogzUXO47BaNTm6\n5HD/GsBUBcKleTvx4Elt8q/5Zd8pcqWnmeM3jtz4gelbjilYEGq3nFzuSQ1X6vfm\nOCvVNaJDnAf3m+QgyLJW6DbabNjJuAXWePwLS3q6gG/ICrI22SLe8tUj03gGUJ2i\nqtp9mSbpxwKBgGKg4Nim91eD0zAhC2GmZOxF4BtsHT5ikZrVbqBTKx9VS8T1JYQf\nhN2A48gyxK6gBAx2dVewVPG6bLXtOWiHBGxSOa+4JkKFJi8K1WWQcDprRDZmxv2j\nUElQfNlddsFwRxTbbokZrNvar9XhSx5W8XX93Fp40XXBTQnwMd2tumSpAoGADONT\nkgSw7Fl7UBjdCODdGctThWKnr7oLMKTnQewYRB+RZVWY1LzUSj91Znh+Hl2x/N3u\nzNcVkZfGlAK0kg/pdyr1SG6dNVhkLvfCAA656AR55Ii+nft1JxWHK3dXlOeyo1j6\n5g+waez7LeYM5AYBFjKRT8m2op3QFLacTTDd+v8CgYEAj7ojeJi36VJY5/FS+1Ah\nH9BnTh3/X8qXgjXzYfJyQlSUog2Eoe5WGfeVSgMWLE8k6mXP9lF+sIJAZDJTX2ax\n2DGjZ4jG/gh+rZ/EaJjxlYb6/d/4QEOH18bRSwjWzeV5LJlJZvstyjSFZMLwbDfW\nQf+KnqfD0+zmE/1t/oj390c=\n-----END PRIVATE KEY-----\n",
+  "client_email": "word-audio-player@profound-coda-132223.iam.gserviceaccount.com",
+  "client_id": "114868798517218368180",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/word-audio-player%40profound-coda-132223.iam.gserviceaccount.com"
+}

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WordPlayer.Gui
 {
-    public partial class TestHelp : Form
+    public partial class SettingsMenu : Form
     {
-        public TestHelp()
+        public SettingsMenu()
         {
             InitializeComponent();
         }
