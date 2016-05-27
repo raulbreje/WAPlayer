@@ -3,11 +3,8 @@ using Microsoft.Office.Tools.Ribbon;
 using WordPlayer.AudioPlayer;
 using System.Windows.Forms;
 using WordPlayer.Gui;
-using System.Runtime.InteropServices;
-using WordPlayer.Utils;
-using System.Reflection;
-using System.Linq;
 using System.Threading;
+using WordPlayer.Controller;
 
 namespace WordPlayer
 {
@@ -97,31 +94,26 @@ namespace WordPlayer
 
         private void btn_about_Click(object sender, RibbonControlEventArgs e)
         {
-            using (AboutPanel about = new AboutPanel())
+            using (AboutPanel aboutPanel = new AboutPanel())
             {
-                about.ShowDialog();
-            }
-        }
-        private void btn_about_KeyPress(object sender, RibbonControlEventArgs e)
-        {
-            using (AboutPanel about = new AboutPanel())
-            {
-                about.ShowDialog();
+                aboutPanel.ShowDialog();
             }
         }
 
         private void btn_help_Click(object sender, RibbonControlEventArgs e)
         {
-            using (HelpMenu test = new HelpMenu())
+            using (HelpMenu helpMenu = new HelpMenu())
             {
-                test.ShowDialog();
+                helpMenu.ShowDialog();
             }
         }
 
         private void btn_settings_Click(object sender, RibbonControlEventArgs e)
         {
-            WAStandalone frm2 = new WAStandalone();
-            frm2.Show();
+            using (SettingsMenu settingsMenu = new SettingsMenu())
+            {
+                settingsMenu.ShowDialog();
+            }
         }
 
         private void btn_rewind_Click(object sender, RibbonControlEventArgs e)
@@ -132,6 +124,11 @@ namespace WordPlayer
         private void btn_forward_Click(object sender, RibbonControlEventArgs e)
         {
 
+        }
+
+        private void btn_googleDriveAPI_Click(object sender, RibbonControlEventArgs e)
+        {
+            GoogleDriveController.TestConnection();
         }
     }
 }

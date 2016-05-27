@@ -52,7 +52,7 @@ namespace WordPlayer
             this.btn_googleDriveAPI = this.Factory.CreateRibbonButton();
             this.group_player = this.Factory.CreateRibbonGroup();
             this.buttonGroup1 = this.Factory.CreateRibbonButtonGroup();
-            this.btn_rewind = this.Factory.CreateRibbonButton();
+            this.com = this.Factory.CreateRibbonButton();
             this.btn_play = this.Factory.CreateRibbonButton();
             this.btn_pause = this.Factory.CreateRibbonButton();
             this.btn_forward = this.Factory.CreateRibbonButton();
@@ -100,6 +100,7 @@ namespace WordPlayer
             this.btn_googleDriveAPI.Name = "btn_googleDriveAPI";
             this.btn_googleDriveAPI.ScreenTip = "Connect to your Google Drive";
             this.btn_googleDriveAPI.ShowImage = true;
+            this.btn_googleDriveAPI.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_googleDriveAPI_Click);
             // 
             // group_player
             // 
@@ -112,19 +113,19 @@ namespace WordPlayer
             // 
             // buttonGroup1
             // 
-            this.buttonGroup1.Items.Add(this.btn_rewind);
+            this.buttonGroup1.Items.Add(this.com);
             this.buttonGroup1.Items.Add(this.btn_play);
             this.buttonGroup1.Items.Add(this.btn_pause);
             this.buttonGroup1.Items.Add(this.btn_forward);
             this.buttonGroup1.Name = "buttonGroup1";
             // 
-            // btn_rewind
+            // com
             // 
-            this.btn_rewind.Image = global::WordPlayer.Properties.Resources.rewind_btn_image_x18;
-            this.btn_rewind.Label = "Rewind";
-            this.btn_rewind.Name = "btn_rewind";
-            this.btn_rewind.ShowImage = true;
-            this.btn_rewind.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_rewind_Click);
+            this.com.Image = global::WordPlayer.Properties.Resources.rewind_btn_image_x18;
+            this.com.Label = "Rewind";
+            this.com.Name = "com";
+            this.com.ShowImage = true;
+            this.com.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_rewind_Click);
             // 
             // btn_play
             // 
@@ -225,7 +226,7 @@ namespace WordPlayer
         internal Microsoft.Office.Tools.Ribbon.RibbonButtonGroup buttonGroup1;
         internal Microsoft.Office.Tools.Ribbon.RibbonDropDown dropDown_speed;
         internal RibbonButton btn_googleDriveAPI;
-        internal RibbonButton btn_rewind;
+        internal RibbonButton com;
         internal RibbonButton btn_forward;
     }
 

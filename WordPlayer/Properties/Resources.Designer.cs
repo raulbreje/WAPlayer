@@ -63,16 +63,6 @@ namespace WordPlayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Drawing {
-            get {
-                object obj = ResourceManager.GetObject("Drawing", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap forward_btn_image_x18 {
             get {
                 object obj = ResourceManager.GetObject("forward_btn_image_x18", resourceCulture);
@@ -91,11 +81,22 @@ namespace WordPlayer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Resources/Drawing.png.
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static string main_logo {
+        internal static System.Drawing.Icon logo {
             get {
-                return ResourceManager.GetString("main_logo", resourceCulture);
+                object obj = ResourceManager.GetObject("logo", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_x275 {
+            get {
+                object obj = ResourceManager.GetObject("logo_x275", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

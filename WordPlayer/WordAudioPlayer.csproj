@@ -220,7 +220,14 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="Components\WASlider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\WASlider.Designer.cs">
+      <DependentUpon>WASlider.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controller\AudioFileController.cs" />
+    <Compile Include="Controller\GoogleDriveController.cs" />
     <Compile Include="Controller\IAudioFileController.cs" />
     <Compile Include="Gui\AboutPanel.cs">
       <SubType>Form</SubType>
@@ -233,6 +240,12 @@
     </Compile>
     <Compile Include="Gui\SettingsMenu.Designer.cs">
       <DependentUpon>SettingsMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\testPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\testPanel.Designer.cs">
+      <DependentUpon>testPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Gui\WAStandalone.cs">
       <SubType>Form</SubType>
@@ -262,11 +275,17 @@
     </Compile>
     <Compile Include="Utils\AppHelper.cs" />
     <Compile Include="Utils\KeyboardHook.cs" />
+    <EmbeddedResource Include="Components\WASlider.resx">
+      <DependentUpon>WASlider.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gui\AboutPanel.resx">
       <DependentUpon>AboutPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\SettingsMenu.resx">
       <DependentUpon>SettingsMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\testPanel.resx">
+      <DependentUpon>testPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\WAStandalone.resx">
       <DependentUpon>WAStandalone.cs</DependentUpon>
@@ -294,6 +313,9 @@
     <Compile Include="ThisAddIn.cs">
       <SubType>Code</SubType>
     </Compile>
+    <None Include="Resources\client_secret.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="ThisAddIn.Designer.xml">
       <DependentUpon>ThisAddIn.cs</DependentUpon>
     </None>
@@ -309,7 +331,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Drawing.png" />
+    <None Include="Resources\logo.ico" />
+    <Content Include="Resources\logo_x275.png" />
     <None Include="Resources\rewind_btn_image_x18.png" />
     <None Include="Resources\forward_btn_image_x18.png" />
     <Content Include="Resources\google_drive_image_x18.png" />
