@@ -46,6 +46,7 @@ namespace WordPlayer
 
         public static void close()
         {
+            audioFile.Stop();
             audioFile.Dispose();
             audioFile = null;   
         }
@@ -89,6 +90,7 @@ namespace WordPlayer
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 audioFile = new AudioFileController(ofd.FileName);
+                lbl_audio_name.Label = ofd.SafeFileName;
             }
         }
 
@@ -129,6 +131,11 @@ namespace WordPlayer
         private void btn_googleDriveAPI_Click(object sender, RibbonControlEventArgs e)
         {
             GoogleDriveController.TestConnection();
+        }
+
+        private void button1_Click(object sender, RibbonControlEventArgs e)
+        {
+
         }
     }
 }

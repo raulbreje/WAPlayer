@@ -220,11 +220,11 @@
     can be found.
   -->
   <ItemGroup>
-    <Compile Include="Components\WASlider.cs">
+    <Compile Include="Components\WaSlider.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Components\WASlider.Designer.cs">
-      <DependentUpon>WASlider.cs</DependentUpon>
+    <Compile Include="Components\WaSlider.Designer.cs">
+      <DependentUpon>WaSlider.cs</DependentUpon>
     </Compile>
     <Compile Include="Controller\AudioFileController.cs" />
     <Compile Include="Controller\GoogleDriveController.cs" />
@@ -241,11 +241,11 @@
     <Compile Include="Gui\SettingsMenu.Designer.cs">
       <DependentUpon>SettingsMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\testPanel.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Gui\WAControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Gui\testPanel.Designer.cs">
-      <DependentUpon>testPanel.cs</DependentUpon>
+    <Compile Include="Gui\WAControl.Designer.cs">
+      <DependentUpon>WAControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Gui\WAStandalone.cs">
       <SubType>Form</SubType>
@@ -275,8 +275,8 @@
     </Compile>
     <Compile Include="Utils\AppHelper.cs" />
     <Compile Include="Utils\KeyboardHook.cs" />
-    <EmbeddedResource Include="Components\WASlider.resx">
-      <DependentUpon>WASlider.cs</DependentUpon>
+    <EmbeddedResource Include="Components\WaSlider.resx">
+      <DependentUpon>WaSlider.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\AboutPanel.resx">
       <DependentUpon>AboutPanel.cs</DependentUpon>
@@ -284,8 +284,8 @@
     <EmbeddedResource Include="Gui\SettingsMenu.resx">
       <DependentUpon>SettingsMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\testPanel.resx">
-      <DependentUpon>testPanel.cs</DependentUpon>
+    <EmbeddedResource Include="Gui\WAControl.resx">
+      <DependentUpon>WAControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\WAStandalone.resx">
       <DependentUpon>WAStandalone.cs</DependentUpon>
@@ -331,6 +331,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\volume_down_btn_image_x18.png" />
+    <None Include="Resources\volume_up_btn_image_x18.png" />
+    <None Include="Resources\volume_up_btn_image.png" />
     <None Include="Resources\logo.ico" />
     <Content Include="Resources\logo_x275.png" />
     <None Include="Resources\rewind_btn_image_x18.png" />

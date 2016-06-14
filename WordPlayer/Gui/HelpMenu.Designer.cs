@@ -40,6 +40,7 @@
             this.rickTxtBox_about.Size = new System.Drawing.Size(384, 561);
             this.rickTxtBox_about.TabIndex = 0;
             this.rickTxtBox_about.Text = "";
+            this.rickTxtBox_about.TextChanged += new System.EventHandler(this.rickTxtBox_about_TextChanged);
             // 
             // HelpMenu
             // 

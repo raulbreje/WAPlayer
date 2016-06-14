@@ -17,5 +17,10 @@ namespace WordPlayer.Gui
             InitializeComponent();
             rickTxtBox_about.Text = "Just a preview.";
         }
+
+        private void rickTxtBox_about_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

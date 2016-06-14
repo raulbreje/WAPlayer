@@ -12,9 +12,9 @@ using Microsoft.Office.Core;
 
 namespace WordPlayer.Components
 {
-    public partial class WASlider : TrackBar, RibbonControl, RibbonComponent, IComponent, IDisposable
+    public partial class WaSlider : TrackBar, RibbonControl, RibbonComponent, IComponent, IDisposable
     {
-        public WASlider()
+        public WaSlider()
         {
             InitializeComponent();
         }

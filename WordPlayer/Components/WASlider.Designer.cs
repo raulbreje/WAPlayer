@@ -1,6 +1,6 @@
 ﻿namespace WordPlayer.Components
 {
-    partial class WASlider
+    partial class WaSlider
     {
         /// <summary>
         /// Required designer variable.

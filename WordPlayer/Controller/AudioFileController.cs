@@ -6,7 +6,7 @@ namespace WordPlayer.AudioPlayer
 {
     class AudioFileController : IAudioFileController
     {
-        
+
         private IWavePlayer wavePlayer = new WaveOutEvent();
         private FadeInOutSampleProvider fadeInOut;
 

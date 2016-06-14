@@ -1,13 +1,13 @@
 ﻿namespace WordPlayer.Gui
 {
-    partial class testPanel
+    partial class WAControl
     {
-        /// <summary>
+        /// <summary> 
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,34 +20,32 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Component Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.volumeSlider1 = new NAudio.Gui.VolumeSlider();
             this.SuspendLayout();
             // 
-            // trackBar1
+            // volumeSlider1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(227, 163);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(104, 45);
-            this.trackBar1.TabIndex = 0;
+            this.volumeSlider1.Location = new System.Drawing.Point(322, 3);
+            this.volumeSlider1.Name = "volumeSlider1";
+            this.volumeSlider1.Size = new System.Drawing.Size(164, 24);
+            this.volumeSlider1.TabIndex = 0;
             // 
-            // testPanel
+            // WAControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(762, 446);
-            this.Controls.Add(this.trackBar1);
-            this.Name = "testPanel";
-            this.Text = "testPanel";
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            this.Controls.Add(this.volumeSlider1);
+            this.Name = "WAControl";
+            this.Size = new System.Drawing.Size(869, 92);
+            this.Load += new System.EventHandler(this.WAControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -55,6 +53,6 @@
 
         #endregion
 
-        private System.Windows.Forms.TrackBar trackBar1;
+        private NAudio.Gui.VolumeSlider volumeSlider1;
     }
 }
