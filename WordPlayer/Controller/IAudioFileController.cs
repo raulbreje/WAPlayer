@@ -1,6 +1,6 @@
 ﻿namespace WordPlayer.AudioPlayer
 {
-    interface IAudioFileController
+    public interface IAudioFileController
     {
 
         void Play();

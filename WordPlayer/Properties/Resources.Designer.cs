@@ -81,6 +81,22 @@ namespace WordPlayer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Word Audio Player
+        ///
+        ///Content 1
+        ///Content 2
+        ///Content 3
+        ///
+        ///By Raul Breje 
+        ///.
+        /// </summary>
+        internal static string HelpContent {
+            get {
+                return ResourceManager.GetString("HelpContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon logo {

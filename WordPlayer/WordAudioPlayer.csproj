@@ -274,7 +274,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Utils\AppHelper.cs" />
-    <Compile Include="Utils\KeyboardHook.cs" />
     <EmbeddedResource Include="Components\WaSlider.resx">
       <DependentUpon>WaSlider.cs</DependentUpon>
     </EmbeddedResource>
@@ -316,6 +315,7 @@
     <None Include="Resources\client_secret.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Resources\HelpContent.rtf" />
     <None Include="ThisAddIn.Designer.xml">
       <DependentUpon>ThisAddIn.cs</DependentUpon>
     </None>
@@ -325,6 +325,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\KeyboardInterceptor\KeyboardInterceptor.csproj">
+      <Project>{4fe2c02d-e391-41df-8cfc-0e9aeffc4e5a}</Project>
+      <Name>KeyboardInterceptor</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NAudio\NAudio.csproj">
       <Project>{da4f02e3-0b5e-42cd-b8d9-5583fa51d66e}</Project>
       <Name>NAudio</Name>
@@ -342,6 +346,9 @@
     <None Include="Resources\open_btn_image_x18.png" />
     <None Include="Resources\pause_btn_image_x18.png" />
     <None Include="Resources\play_btn_image_x18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Adapters\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

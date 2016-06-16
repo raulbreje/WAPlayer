@@ -1,16 +1,15 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Security;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Word Audio Player")]
-[assembly: AssemblyDescription("Audio Player for Office Word")]
+[assembly: AssemblyTitle("KeyboardInterceptor")]
+[assembly: AssemblyDescription("The module catches the keyboard events")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Breje Corporation")]
-[assembly: AssemblyProduct("WAPlayer")]
+[assembly: AssemblyProduct("KeyboardInterceptor")]
 [assembly: AssemblyCopyright("Copyright © Raul Breje 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -21,7 +20,7 @@ using System.Security;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("00b04da9-2b3b-4251-aaf7-bac480d6ad15")]
+[assembly: Guid("4fe2c02d-e391-41df-8cfc-0e9aeffc4e5a")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -33,6 +32,5 @@ using System.Security;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.1.4.15")]
-[assembly: AssemblyFileVersion("0.1.4.15")]
-
+[assembly: AssemblyVersion("0.1.1.15")]
+[assembly: AssemblyFileVersion("0.1.1.15")]

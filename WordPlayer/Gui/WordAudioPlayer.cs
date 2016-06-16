@@ -4,26 +4,26 @@ using WordPlayer.AudioPlayer;
 using System.Windows.Forms;
 using WordPlayer.Gui;
 using System.Threading;
+using KeyboardInterceptor;
 using WordPlayer.Controller;
+using WordPlayer.Utils;
 
 namespace WordPlayer
 {
     public partial class WordPlayer
     {
 
-        private static IAudioFileController audioFile = null;
-        private SynchronizationContext sContext = null;
-        KeyboardHook hook = new KeyboardHook();
+        private static IAudioFileController _audioFile = null;
+        private readonly KeyboardHook _hook = new KeyboardHook();
 
         private void WordPlayer_Load(object sender, RibbonUIEventArgs e)
         {
-            sContext = SynchronizationContext.Current;
             // register the event that is fired after the key press.
-            hook.KeyPressed +=
+            _hook.KeyPressed +=
                 new EventHandler<KeyPressedEventArgs>(hook_KeyPressed);
             // register the control + alt + F12 combination as hot key.
-            hook.RegisterHotKey(ModifierKeys.Control, Keys.D1);
-            hook.RegisterHotKey(ModifierKeys.Control, Keys.D2);
+            _hook.RegisterHotKey(ModifierKeys.Control, Keys.D1);
+            _hook.RegisterHotKey(ModifierKeys.Control, Keys.D2);
         }
 
         private void hook_KeyPressed(object sender, KeyPressedEventArgs e)
@@ -33,33 +33,30 @@ namespace WordPlayer
             {
                 case (Keys.D1):
                     OpenFileDiag();
-                    audioFile.Play();
+                    _audioFile.Play();
                     break;
                 case (Keys.D2):
-                    if (audioFile != null)
-                    {
-                        audioFile.Pause();
-                    }
+                    _audioFile?.Pause();
                     break;
             }
         }
 
         public static void close()
         {
-            audioFile.Stop();
-            audioFile.Dispose();
-            audioFile = null;   
+            _audioFile.Stop();
+            _audioFile.Dispose();
+            _audioFile = null;   
         }
 
         private void OpenFileDiag()
         {
-            if (audioFile == null)
+            if (_audioFile == null)
             {
                 OpenFileDialog ofd = new OpenFileDialog();
                 ofd.Filter = "Audio Files|*.mp3;*.wav;*.aiff";
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    audioFile = new AudioFileController(ofd.FileName);
+                    _audioFile = AppHelper.GetAudioFileController(ofd.FileName);
                 }
             }
         }
@@ -67,31 +64,28 @@ namespace WordPlayer
         public void btn_play_Click(object sender, RibbonControlEventArgs e)
         {
             OpenFileDiag();
-            audioFile.Play();
+            _audioFile.Play();
         }
 
         private void btn_pause_Click(object sender, RibbonControlEventArgs e)
         {
-            if (audioFile != null)
-            {
-                audioFile.Pause();
-            }
+            _audioFile?.Pause();
         }
 
         private void btn_open_Click(object sender, RibbonControlEventArgs e)
         {
-            if (audioFile != null)
+            if (_audioFile != null)
             {
-                audioFile.Stop();
-                audioFile = null;
+                _audioFile.Stop();
+                _audioFile = null;
             }
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Audio Files|*.mp3;*.wav;*.aiff";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                audioFile = new AudioFileController(ofd.FileName);
+                _audioFile = AppHelper.GetAudioFileController(ofd.FileName);
                 lbl_audio_name.Label = ofd.SafeFileName;
-                lbl_time_tracker.Label = audioFile.GetTotalTimeOfTrack();
+                lbl_time_tracker.Label = _audioFile.GetTotalTimeOfTrack();
             }
         }
 

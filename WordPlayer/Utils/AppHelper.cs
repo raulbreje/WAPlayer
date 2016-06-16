@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WordPlayer.AudioPlayer;
 
 namespace WordPlayer.Utils
 {
@@ -12,5 +13,10 @@ namespace WordPlayer.Utils
         public static string PLAY_SPEED_2 = "1";
         public static string PLAY_SPEED_3 = "1.5";
         public static string PLAY_SPEED_4 = "2";
+
+        public static IAudioFileController GetAudioFileController(string path)
+        {
+            return new AudioFileController(path);
+        }
     }
 }
