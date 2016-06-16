@@ -8,11 +8,13 @@ namespace WordPlayer.AudioPlayer
     {
 
         private IWavePlayer wavePlayer = new WaveOutEvent();
+        private AudioFileReader file;
         private FadeInOutSampleProvider fadeInOut;
 
         public AudioFileController(String path)
         {
-            fadeInOut = new FadeInOutSampleProvider(new AudioFileReader(@path));
+            file = new AudioFileReader(@path);
+            fadeInOut = new FadeInOutSampleProvider(file);
             wavePlayer.Init(fadeInOut);
         }
 
@@ -45,5 +47,16 @@ namespace WordPlayer.AudioPlayer
         {
             wavePlayer.Dispose();
         }
+
+        public string GetTotalTimeOfTrack()
+        {
+            return FormatTimeSpan(file.CurrentTime) + " / " + FormatTimeSpan(file.TotalTime);
+        }
+
+        private static string FormatTimeSpan(TimeSpan ts)
+        {
+            return String.Format("{0:D2}:{1:D2}:{2:D2}", (int)ts.TotalMinutes, ts.Seconds, ts.Milliseconds);
+        }
+        
     }
 }

@@ -15,5 +15,7 @@
 
         void Dispose();
 
+        string GetTotalTimeOfTrack();
+
     }
 }

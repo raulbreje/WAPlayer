@@ -91,6 +91,7 @@ namespace WordPlayer
             {
                 audioFile = new AudioFileController(ofd.FileName);
                 lbl_audio_name.Label = ofd.SafeFileName;
+                lbl_time_tracker.Label = audioFile.GetTotalTimeOfTrack();
             }
         }
 

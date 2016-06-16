@@ -14,14 +14,14 @@ public sealed class KeyboardHook : IDisposable
     /// <summary>
     /// Represents the window that is used internally to get the messages.
     /// </summary>
-    private class Window : NativeWindow, IDisposable
+    private sealed class Window : NativeWindow, IDisposable
     {
         private static int WM_HOTKEY = 0x0312;
 
         public Window()
         {
             // create the handle for the window.
-            this.CreateHandle(new CreateParams());
+            CreateHandle(new CreateParams());
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ public sealed class KeyboardHook : IDisposable
         #endregion
     }
 
-    private Window _window = new Window();
+    private readonly Window _window = new Window();
     private int _currentId;
 
     public KeyboardHook()
@@ -112,19 +112,15 @@ public sealed class KeyboardHook : IDisposable
 /// </summary>
 public class KeyPressedEventArgs : EventArgs
 {
-    private ModifierKeys _modifier;
     private Keys _key;
 
     internal KeyPressedEventArgs(ModifierKeys modifier, Keys key)
     {
-        _modifier = modifier;
+        Modifier = modifier;
         _key = key;
     }
 
-    public ModifierKeys Modifier
-    {
-        get { return _modifier; }
-    }
+    public ModifierKeys Modifier { get; }
 
     public Keys Key
     {
