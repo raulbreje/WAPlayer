@@ -27,7 +27,7 @@
     <NoStandardLibraries>false</NoStandardLibraries>
     <RootNamespace>WordPlayer</RootNamespace>
     <AssemblyName>WordPlayer</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <DefineConstants>VSTO40</DefineConstants>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -47,6 +47,7 @@
     <FriendlyName>WordPlayer</FriendlyName>
     <OfficeApplicationDescription />
     <LoadBehavior>3</LoadBehavior>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
@@ -308,6 +309,7 @@
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="ThisAddIn.cs">
       <SubType>Code</SubType>
@@ -325,6 +327,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ErrorsHandler\ErrorHandling.csproj">
+      <Project>{7b58600b-4763-4b54-bbd5-14ba9371c78c}</Project>
+      <Name>ErrorHandling</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KeyboardInterceptor\KeyboardInterceptor.csproj">
       <Project>{4fe2c02d-e391-41df-8cfc-0e9aeffc4e5a}</Project>
       <Name>KeyboardInterceptor</Name>

@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("KeyboardInterceptor")]
-[assembly: AssemblyDescription("The module catches the keyboard events")]
+[assembly: AssemblyTitle("ErrorHandleing")]
+[assembly: AssemblyDescription("Cross-Cutting Error Handling")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Breje Corporation")]
-[assembly: AssemblyProduct("Keyboard Interceptor")]
+[assembly: AssemblyProduct("Error Handling")]
 [assembly: AssemblyCopyright("Copyright © Raul Breje 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("4fe2c02d-e391-41df-8cfc-0e9aeffc4e5a")]
+[assembly: Guid("7b58600b-4763-4b54-bbd5-14ba9371c78c")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.*")]
-[assembly: AssemblyFileVersion("1.0.0.*")]
+[assembly: AssemblyVersion("0.1.0.*")]
+[assembly: AssemblyFileVersion("0.1.0.*")]
