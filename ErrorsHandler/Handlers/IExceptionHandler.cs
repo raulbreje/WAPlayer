@@ -2,7 +2,7 @@
 
 namespace ErrorHandling.Handlers
 {
-    interface IExceptionHandler
+    public interface IExceptionHandler
     {
         void Handle(Exception exception);
     }

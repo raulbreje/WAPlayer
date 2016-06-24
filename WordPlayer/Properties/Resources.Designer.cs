@@ -83,9 +83,9 @@ namespace WordPlayer.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Word Audio Player
         ///
-        ///Content 1
-        ///Content 2
-        ///Content 3
+        ///• Content 1
+        ///• Content 2
+        ///• Content 3
         ///
         ///By Raul Breje 
         ///.
@@ -153,6 +153,30 @@ namespace WordPlayer.Properties {
             get {
                 object obj = ResourceManager.GetObject("rewind_btn_image_x18", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+        ///&lt;application&gt;
+        ///  &lt;audio_formats&gt;
+        ///    &lt;audio_format id=&quot;mp3_format&quot;&gt;
+        ///      &lt;string_value&gt;.mp3&lt;/string_value&gt;
+        ///      &lt;is_checked&gt;yes&lt;/is_checked&gt;
+        ///    &lt;/audio_format&gt;
+        ///    &lt;audio_format id=&quot;wav_format&quot;&gt;
+        ///      &lt;string_value&gt;.wav&lt;/string_value&gt;
+        ///      &lt;is_checked&gt;yes&lt;/is_checked&gt;
+        ///    &lt;/audio_format&gt;
+        ///    &lt;audio_format id=&quot;aac_format&quot;&gt;
+        ///      &lt;string_value&gt;.aac&lt;/string_value&gt;
+        ///      &lt;is_checked&gt;yes&lt;/is_checked&gt;
+        ///    &lt;/audio_format&gt;
+        ///    &lt;audio_format id=&quot;aiff_format&quot;&gt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string settings {
+            get {
+                return ResourceManager.GetString("settings", resourceCulture);
             }
         }
         

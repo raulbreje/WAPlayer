@@ -1,7 +1,9 @@
 ﻿namespace WordPlayer.AudioPlayer
 {
-    public interface IAudioFileController
+    public interface IWAManager
     {
+
+        void Init(string path);
 
         void Play();
 
@@ -11,9 +13,13 @@
 
         void Forward();
 
-        void Reverse();
+        void Rewind();
 
         void Dispose();
+
+        void VolumeUp();
+
+        void VolumeDown();
 
         string GetTotalTimeOfTrack();
 

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<application>
+  <audio_formats>
+    <audio_format id="mp3_format">
+      <string_value>.mp3</string_value>
+      <is_checked>yes</is_checked>
+    </audio_format>
+    <audio_format id="wav_format">
+      <string_value>.wav</string_value>
+      <is_checked>yes</is_checked>
+    </audio_format>
+    <audio_format id="aac_format">
+      <string_value>.aac</string_value>
+      <is_checked>yes</is_checked>
+    </audio_format>
+    <audio_format id="aiff_format">
+      <string_value>.aiff</string_value>
+      <is_checked>no</is_checked>
+    </audio_format>
+  </audio_formats>
+</application>

@@ -53,13 +53,13 @@ namespace WordPlayer
             this.dropDown_speed = this.Factory.CreateRibbonDropDown();
             this.group_player = this.Factory.CreateRibbonGroup();
             this.lbl_audio_name = this.Factory.CreateRibbonLabel();
-            this.box1 = this.Factory.CreateRibbonBox();
+            this.box_audioData = this.Factory.CreateRibbonBox();
             this.lbl_time_tracker = this.Factory.CreateRibbonLabel();
-            this.buttonGroup2 = this.Factory.CreateRibbonButtonGroup();
-            this.button1 = this.Factory.CreateRibbonButton();
-            this.button2 = this.Factory.CreateRibbonButton();
-            this.label1 = this.Factory.CreateRibbonLabel();
-            this.buttonGroup1 = this.Factory.CreateRibbonButtonGroup();
+            this.btnGroupVolumeControl = this.Factory.CreateRibbonButtonGroup();
+            this.btn_volumeUp = this.Factory.CreateRibbonButton();
+            this.btn_volumeDown = this.Factory.CreateRibbonButton();
+            this.lbl_volume = this.Factory.CreateRibbonLabel();
+            this.btnGroupAudioControl = this.Factory.CreateRibbonButtonGroup();
             this.com = this.Factory.CreateRibbonButton();
             this.btn_play = this.Factory.CreateRibbonButton();
             this.btn_pause = this.Factory.CreateRibbonButton();
@@ -71,9 +71,9 @@ namespace WordPlayer
             this.tab_wordPlayer.SuspendLayout();
             this.group_customization.SuspendLayout();
             this.group_player.SuspendLayout();
-            this.box1.SuspendLayout();
-            this.buttonGroup2.SuspendLayout();
-            this.buttonGroup1.SuspendLayout();
+            this.box_audioData.SuspendLayout();
+            this.btnGroupVolumeControl.SuspendLayout();
+            this.btnGroupAudioControl.SuspendLayout();
             this.group_preferences.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,8 +131,8 @@ namespace WordPlayer
             // 
             this.group_player.DialogLauncher = ribbonDialogLauncherImpl2;
             this.group_player.Items.Add(this.lbl_audio_name);
-            this.group_player.Items.Add(this.box1);
-            this.group_player.Items.Add(this.buttonGroup1);
+            this.group_player.Items.Add(this.box_audioData);
+            this.group_player.Items.Add(this.btnGroupAudioControl);
             this.group_player.Label = "Player";
             this.group_player.Name = "group_player";
             this.group_player.DialogLauncherClick += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_settings_Click);
@@ -142,51 +142,52 @@ namespace WordPlayer
             this.lbl_audio_name.Label = "No audio file loaded";
             this.lbl_audio_name.Name = "lbl_audio_name";
             // 
-            // box1
+            // box_audioData
             // 
-            this.box1.Items.Add(this.lbl_time_tracker);
-            this.box1.Items.Add(this.buttonGroup2);
-            this.box1.Items.Add(this.label1);
-            this.box1.Name = "box1";
+            this.box_audioData.Items.Add(this.lbl_time_tracker);
+            this.box_audioData.Items.Add(this.btnGroupVolumeControl);
+            this.box_audioData.Items.Add(this.lbl_volume);
+            this.box_audioData.Name = "box_audioData";
             // 
             // lbl_time_tracker
             // 
             this.lbl_time_tracker.Label = "00:00:00 / 00:00:00";
             this.lbl_time_tracker.Name = "lbl_time_tracker";
             // 
-            // buttonGroup2
+            // btnGroupVolumeControl
             // 
-            this.buttonGroup2.Items.Add(this.button1);
-            this.buttonGroup2.Items.Add(this.button2);
-            this.buttonGroup2.Name = "buttonGroup2";
+            this.btnGroupVolumeControl.Items.Add(this.btn_volumeUp);
+            this.btnGroupVolumeControl.Items.Add(this.btn_volumeDown);
+            this.btnGroupVolumeControl.Name = "btnGroupVolumeControl";
             // 
-            // button1
+            // btn_volumeUp
             // 
-            this.button1.Image = global::WordPlayer.Properties.Resources.volume_up_btn_image_x18;
-            this.button1.Label = "Up";
-            this.button1.Name = "button1";
-            this.button1.ShowImage = true;
-            this.button1.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button1_Click);
+            this.btn_volumeUp.Image = global::WordPlayer.Properties.Resources.volume_up_btn_image_x18;
+            this.btn_volumeUp.Label = "Up";
+            this.btn_volumeUp.Name = "btn_volumeUp";
+            this.btn_volumeUp.ShowImage = true;
+            this.btn_volumeUp.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_volumeUp_Click);
             // 
-            // button2
+            // btn_volumeDown
             // 
-            this.button2.Image = global::WordPlayer.Properties.Resources.volume_down_btn_image_x18;
-            this.button2.Label = "Down";
-            this.button2.Name = "button2";
-            this.button2.ShowImage = true;
+            this.btn_volumeDown.Image = global::WordPlayer.Properties.Resources.volume_down_btn_image_x18;
+            this.btn_volumeDown.Label = "Down";
+            this.btn_volumeDown.Name = "btn_volumeDown";
+            this.btn_volumeDown.ShowImage = true;
+            this.btn_volumeDown.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_volumeDown_Click);
             // 
-            // label1
+            // lbl_volume
             // 
-            this.label1.Label = "Volume : 80%";
-            this.label1.Name = "label1";
+            this.lbl_volume.Label = "Volume : 80%";
+            this.lbl_volume.Name = "lbl_volume";
             // 
-            // buttonGroup1
+            // btnGroupAudioControl
             // 
-            this.buttonGroup1.Items.Add(this.com);
-            this.buttonGroup1.Items.Add(this.btn_play);
-            this.buttonGroup1.Items.Add(this.btn_pause);
-            this.buttonGroup1.Items.Add(this.btn_forward);
-            this.buttonGroup1.Name = "buttonGroup1";
+            this.btnGroupAudioControl.Items.Add(this.com);
+            this.btnGroupAudioControl.Items.Add(this.btn_play);
+            this.btnGroupAudioControl.Items.Add(this.btn_pause);
+            this.btnGroupAudioControl.Items.Add(this.btn_forward);
+            this.btnGroupAudioControl.Name = "btnGroupAudioControl";
             // 
             // com
             // 
@@ -259,12 +260,12 @@ namespace WordPlayer
             this.group_customization.PerformLayout();
             this.group_player.ResumeLayout(false);
             this.group_player.PerformLayout();
-            this.box1.ResumeLayout(false);
-            this.box1.PerformLayout();
-            this.buttonGroup2.ResumeLayout(false);
-            this.buttonGroup2.PerformLayout();
-            this.buttonGroup1.ResumeLayout(false);
-            this.buttonGroup1.PerformLayout();
+            this.box_audioData.ResumeLayout(false);
+            this.box_audioData.PerformLayout();
+            this.btnGroupVolumeControl.ResumeLayout(false);
+            this.btnGroupVolumeControl.PerformLayout();
+            this.btnGroupAudioControl.ResumeLayout(false);
+            this.btnGroupAudioControl.PerformLayout();
             this.group_preferences.ResumeLayout(false);
             this.group_preferences.PerformLayout();
             this.ResumeLayout(false);
@@ -283,18 +284,18 @@ namespace WordPlayer
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_help;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_settings;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_about;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButtonGroup buttonGroup1;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButtonGroup btnGroupAudioControl;
         internal Microsoft.Office.Tools.Ribbon.RibbonDropDown dropDown_speed;
         internal RibbonButton btn_googleDriveAPI;
         internal RibbonButton com;
         internal RibbonButton btn_forward;
         internal RibbonLabel lbl_audio_name;
-        internal RibbonBox box1;
+        internal RibbonBox box_audioData;
         internal RibbonLabel lbl_time_tracker;
-        internal RibbonButtonGroup buttonGroup2;
-        internal RibbonButton button1;
-        internal RibbonButton button2;
-        internal RibbonLabel label1;
+        internal RibbonButtonGroup btnGroupVolumeControl;
+        internal RibbonButton btn_volumeUp;
+        internal RibbonButton btn_volumeDown;
+        internal RibbonLabel lbl_volume;
     }
 
     partial class ThisRibbonCollection

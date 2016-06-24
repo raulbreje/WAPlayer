@@ -18,7 +18,6 @@ namespace ErrorHandling.Handlers
 
         public void Handle(Exception exception)
         {
-            var testException = exception.InnerException<InvalidOperationException>();
             successor.Handle(exception);
         }
     }

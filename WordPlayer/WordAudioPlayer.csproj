@@ -221,15 +221,18 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="Adapters\INAudioAdapter.cs" />
+    <Compile Include="Adapters\NAudioAdapter.cs" />
     <Compile Include="Components\WaSlider.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Components\WaSlider.Designer.cs">
       <DependentUpon>WaSlider.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller\AudioFileController.cs" />
+    <Compile Include="Controller\WAManager.cs" />
     <Compile Include="Controller\GoogleDriveController.cs" />
-    <Compile Include="Controller\IAudioFileController.cs" />
+    <Compile Include="Controller\IWAManager.cs" />
+    <Compile Include="Controller\SettingsController.cs" />
     <Compile Include="Gui\AboutPanel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +263,7 @@
     <Compile Include="Gui\HelpMenu.Designer.cs">
       <DependentUpon>HelpMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Internal\Model\AudioFormat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -275,6 +279,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Utils\AppHelper.cs" />
+    <Compile Include="Utils\XMLSettingsManager.cs" />
     <EmbeddedResource Include="Components\WaSlider.resx">
       <DependentUpon>WaSlider.cs</DependentUpon>
     </EmbeddedResource>
@@ -341,6 +346,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\settings.xml" />
+    <EmbeddedResource Include="Resources\Ribbon1.xml" />
     <None Include="Resources\volume_down_btn_image_x18.png" />
     <None Include="Resources\volume_up_btn_image_x18.png" />
     <None Include="Resources\volume_up_btn_image.png" />
@@ -353,9 +360,7 @@
     <None Include="Resources\pause_btn_image_x18.png" />
     <None Include="Resources\play_btn_image_x18.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Adapters\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

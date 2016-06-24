@@ -47,6 +47,8 @@
     <Compile Include="Handlers\DefaultExceptionHandler.cs" />
     <Compile Include="Handlers\ExceptionHandler.cs" />
     <Compile Include="Handlers\IExceptionHandler.cs" />
+    <Compile Include="Handlers\ShortcutKeyExceptionHandler.cs" />
+    <Compile Include="Handlers\WordAudioExceptionHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Exceptions\ShortcutKeyException.cs" />
   </ItemGroup>
