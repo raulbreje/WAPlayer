@@ -17,7 +17,7 @@ namespace WordPlayer.Internal
             var start = ThisAddIn.Application.ActiveDocument.Content.Start;
             var end = ThisAddIn.Application.ActiveDocument.Content.End;
             var rng = ThisAddIn.Application.ActiveDocument.Range(start, end);
-            rng.Text = rng.Text + arg + " \v\v\t";
+            rng.Text = rng.Text + DateTime.Now.ToString("MMMM dd, yyyy (HH:mm:ss) ") + arg + " \v\v\t";
             object oMissing = System.Reflection.Missing.Value;
             object oEoF = WdUnits.wdStory;
             ThisAddIn.Application.ActiveWindow.Selection.EndKey(ref oEoF, ref oMissing);

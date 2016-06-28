@@ -359,6 +359,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\english_flag_x12.png" />
+    <Content Include="Resources\french_flag_x12.png" />
+    <Content Include="Resources\german_flag_x12.png" />
+    <Content Include="Resources\romanian_flag_x12.png" />
     <Content Include="Resources\settings.xml" />
     <EmbeddedResource Include="Resources\Ribbon1.xml" />
     <None Include="Resources\volume_down_btn_image_x18.png" />

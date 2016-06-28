@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Resources;
 using System.Windows.Forms;
+using static System.String;
 
 namespace WordPlayer.Gui
 {
@@ -12,6 +13,8 @@ namespace WordPlayer.Gui
         public static readonly string WavFormat = ".wav";
         public static readonly string AacFormat = ".aac";
         public static readonly string AiffFormat = ".aiff";
+
+
 
         public SettingsMenu()
         {
@@ -44,6 +47,19 @@ namespace WordPlayer.Gui
             return listOfFormatsStrings;
         }
 
+        private string rep = Empty;
+        private string inte = Empty;
+
+        public string getReporterQuoteSimulation()
+        {
+            return rep;
+        }
+
+        public string getInterviewedQuoteSimulation()
+        {
+            return inte;
+        }
+
         private void btn_okay_Click(object sender, EventArgs e)
         {
             using (var resx = new ResXResourceWriter(@"D:\Private\Bachelor Degree Workspace\WordPlayer\VS Workspace\WordPlayer\WordPlayer\Internal\Resources\SettingsResources.resx"))
@@ -51,6 +67,8 @@ namespace WordPlayer.Gui
                 resx.AddResource("reporter_quote", rtb_reporter.Text);
                 resx.AddResource("interviewed_quote", rtb_interviewed.Text);
             }
+            rep = rtb_reporter.Text;
+            inte = rtb_interviewed.Text;
             this.Close();
         }
     }

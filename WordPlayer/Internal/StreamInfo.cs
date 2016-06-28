@@ -9,53 +9,39 @@ namespace WordPlayer.Internal
 {
     class StreamInfo
     {
-
-        string fileName;
-        string letter;
-        AudioStream stream;
-        int offsetMilliseconds;
-        int delayMilliseconds;
-        int volumeDecibels;
+        int _offsetMilliseconds;
+        int _delayMilliseconds;
+        int _volumeDecibels;
 
         public StreamInfo(string fileName)
         {
-            this.fileName = fileName;
-            this.stream = new AudioStream(fileName);
+            this.FileName = fileName;
+            this.Stream = new AudioStream(fileName);
         }
 
-        public string FileName
-        {
-            get { return fileName; }
-        }
+        public string FileName { get; }
 
-        public string Letter
-        {
-            get { return letter; }
-            set { letter = value; }
-        }
+        public string Letter { get; set; }
 
-        public AudioStream Stream
-        {
-            get { return stream; }
-        }
+        public AudioStream Stream { get; }
 
         public int OffsetMilliseconds
         {
-            get { return offsetMilliseconds; }
+            get { return _offsetMilliseconds; }
             set
             {
-                offsetMilliseconds = value;
-                stream.Offset = TimeSpan.FromMilliseconds(offsetMilliseconds);
+                _offsetMilliseconds = value;
+                Stream.Offset = TimeSpan.FromMilliseconds(_offsetMilliseconds);
             }
         }
 
         public int DelayMilliseconds
         {
-            get { return delayMilliseconds; }
+            get { return _delayMilliseconds; }
             set
             {
-                delayMilliseconds = value;
-                stream.PreDelay = TimeSpan.FromMilliseconds(delayMilliseconds);
+                _delayMilliseconds = value;
+                Stream.PreDelay = TimeSpan.FromMilliseconds(_delayMilliseconds);
             }
         }
 
@@ -63,12 +49,12 @@ namespace WordPlayer.Internal
         {
             get
             {
-                return volumeDecibels;
+                return _volumeDecibels;
             }
             set
             {
-                volumeDecibels = value;
-                stream.Volume = (float)Decibels.DecibelsToLinear(volumeDecibels);
+                _volumeDecibels = value;
+                Stream.Volume = (float)Decibels.DecibelsToLinear(_volumeDecibels);
             }
         }
     }

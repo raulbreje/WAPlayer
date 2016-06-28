@@ -63,9 +63,39 @@ namespace WordPlayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap english_flag_x12 {
+            get {
+                object obj = ResourceManager.GetObject("english_flag_x12", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap forward_btn_image_x18 {
             get {
                 object obj = ResourceManager.GetObject("forward_btn_image_x18", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap french_flag_x12 {
+            get {
+                object obj = ResourceManager.GetObject("french_flag_x12", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap german_flag_x12 {
+            get {
+                object obj = ResourceManager.GetObject("german_flag_x12", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -160,6 +190,16 @@ namespace WordPlayer.Properties {
         internal static System.Drawing.Bitmap rewind_btn_image_x18 {
             get {
                 object obj = ResourceManager.GetObject("rewind_btn_image_x18", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap romanian_flag_x12 {
+            get {
+                object obj = ResourceManager.GetObject("romanian_flag_x12", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

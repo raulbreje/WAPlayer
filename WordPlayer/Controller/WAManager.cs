@@ -27,19 +27,18 @@ namespace WordPlayer.Controller
     }
     class WaManager : IWaManager
     {
-
-        private float volume = 1.0f;
-        private float MinDb = -48;
+        private const float volume = 1.0f;
+        private const float MinDb = -48;
         public event EventHandler VolumeChanged;
 
-        private int skipSeconds;
-        private AudioStream stream;
+        private int _skipSeconds;
+        private AudioStream _stream;
 
         private IWavePlayer _wavePlayer;
         private AudioFileReader _file;
         private static readonly IExceptionHandler ExceptionHandler = new ExceptionHandler();
 
-        private WaveMixerStream32 mixer;
+        private WaveMixerStream32 _mixer;
         public PlaybackStatus Status { get; set; }
 
         public void SetVolumeUp()
@@ -93,15 +92,12 @@ namespace WordPlayer.Controller
             StreamInfo sinfo = new StreamInfo(path);
             sinfo.Letter = "A";
             _file = new AudioFileReader(@path);
-            //var fadeInOut = new FadeInOutSampleProvider(_file);
-            mixer = new WaveMixerStream32();
-            mixer.AddInputStream(sinfo.Stream);
+            _mixer = new WaveMixerStream32();
+            _mixer.AddInputStream(sinfo.Stream);
             _wavePlayer = new WaveOut();
-            _wavePlayer.Init(mixer);
-            //_wavePlayer.Init(fadeInOut);
-            
-            mixer.AutoStop = false;
-            skipSeconds = 3;
+            _wavePlayer.Init(_mixer);
+            _mixer.AutoStop = false;
+            _skipSeconds = 3;
             Status = PlaybackStatus.Stopped;
         }
 
@@ -125,9 +121,9 @@ namespace WordPlayer.Controller
 
         public void Forward()
         {
-            if (mixer != null)
+            if (_mixer != null)
             {
-                mixer.CurrentTime += TimeSpan.FromSeconds(skipSeconds);
+                _mixer.CurrentTime += TimeSpan.FromSeconds(_skipSeconds);
             }
         }
 
@@ -138,15 +134,10 @@ namespace WordPlayer.Controller
 
         private void SkipBack()
         {
-            if (mixer != null)
+            if (_mixer != null)
             {
-                mixer.CurrentTime += TimeSpan.FromSeconds(0 - skipSeconds);
+                _mixer.CurrentTime += TimeSpan.FromSeconds(0 - _skipSeconds);
             }
-        }
-
-        private void SetPositionLabel()
-        {
-            
         }
 
         public void Dispose()
@@ -176,23 +167,22 @@ namespace WordPlayer.Controller
 
         public string GetTotalTimeOfTrack()
         {
-            return FormatTimeSpan(mixer.TotalTime);
+            return FormatTimeSpan(_mixer.TotalTime);
         }
 
         public long GetPositionFromMixer()
         {
-            return mixer.Position;
+            return _mixer.Position;
         }
 
         public long GetLengthFromMixer()
         {
-            return mixer.Length;
+            return _mixer.Length;
         }
 
         public string GetCurrentTimeOfTrack()
         {
-            //TimeSpan currentTime = mixer.CurrentTime;
-            return FormatTimeSpan(mixer.CurrentTime);
+            return FormatTimeSpan(_mixer.CurrentTime);
         }
 
         private static string FormatTimeSpan(TimeSpan ts)

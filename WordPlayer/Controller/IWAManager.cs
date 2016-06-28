@@ -28,12 +28,15 @@ namespace WordPlayer.AudioPlayer
         void VolumeDown();
 
         string GetTotalTimeOfTrack();
+
         long GetPositionFromMixer();
+
         long GetLengthFromMixer();
 
         string GetCurrentTimeOfTrack();
 
         void SetVolumeUp();
+
         void SetVolumeDown();
 
     }

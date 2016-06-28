@@ -225,6 +225,7 @@ namespace WordPlayer
             // 
             // group_preferences
             // 
+            ribbonDialogLauncherImpl3.Enabled = false;
             this.group_preferences.DialogLauncher = ribbonDialogLauncherImpl3;
             this.group_preferences.Items.Add(this.btn_help);
             this.group_preferences.Items.Add(this.btn_settings);

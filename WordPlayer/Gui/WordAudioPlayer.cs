@@ -73,10 +73,27 @@ namespace WordPlayer
                     _applicationManager.VolumeDown();
                     break;
                 case (Keys.D7):
-                    ContentWriter.WriteQuote(Internal.Resources.SettingsResources.ResourceManager.GetString("reporter_quote"));
+                    if (reporter.Equals(Empty))
+                    {
+                        ContentWriter.WriteQuote(
+                            Internal.Resources.SettingsResources.ResourceManager.GetString("reporter_quote"));
+                    }
+                    else
+                    {
+                        ContentWriter.WriteQuote(reporter);
+                    }
+                    
                     break;
                 case (Keys.D8):
-                    ContentWriter.WriteQuote(Internal.Resources.SettingsResources.ResourceManager.GetString("interviewed_quote"));
+                    if (interviewed.Equals(Empty))
+                    {
+                        ContentWriter.WriteQuote(
+                            Internal.Resources.SettingsResources.ResourceManager.GetString("interviewed_quote"));
+                    }
+                    else
+                    {
+                        ContentWriter.WriteQuote(interviewed);
+                    }
                     break;
 
             }
@@ -137,8 +154,13 @@ namespace WordPlayer
             using (var settingsMenu = new SettingsMenu())
             {
                 settingsMenu.ShowDialog();
+                reporter = settingsMenu.getReporterQuoteSimulation();
+                interviewed = settingsMenu.getInterviewedQuoteSimulation();
             }
         }
+
+        private string reporter = Empty;
+        private string interviewed = Empty;
 
         private void btn_rewind_Click(object sender, RibbonControlEventArgs e)
         {

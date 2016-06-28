@@ -1,46 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NAudio.Wave;
 
 namespace WordPlayer.Internal
 {
     public class AudioStream : WaveStream
     {
-        private WaveOffsetStream offsetStream;
-        private WaveChannel32 channelSteam;
-        private bool muted;
-        private float volume;
+        private readonly WaveOffsetStream _offsetStream;
+        private readonly WaveChannel32 _channelSteam;
+        private bool _muted;
+        private float _volume;
 
         public AudioStream(string fileName)
         {
             WaveFileReader reader = new WaveFileReader(fileName);
-            offsetStream = new WaveOffsetStream(reader);
-            channelSteam = new WaveChannel32(offsetStream);
-            muted = false;
-            volume = 1.0f;
+            _offsetStream = new WaveOffsetStream(reader);
+            _channelSteam = new WaveChannel32(_offsetStream);
+            _muted = false;
+            _volume = 1.0f;
         }
 
-        public override int BlockAlign => channelSteam.BlockAlign;
+        public override int BlockAlign => _channelSteam.BlockAlign;
 
-        public override WaveFormat WaveFormat => channelSteam.WaveFormat;
+        public override WaveFormat WaveFormat => _channelSteam.WaveFormat;
 
-        public override long Length
-        {
-            get { return channelSteam.Length; }
-        }
+        public override long Length => _channelSteam.Length;
 
         public override long Position
         {
             get
             {
-                return channelSteam.Position;
+                return _channelSteam.Position;
             }
             set
             {
-                channelSteam.Position = value;
+                _channelSteam.Position = value;
             }
         }
 
@@ -48,14 +41,14 @@ namespace WordPlayer.Internal
         {
             get
             {
-                return muted;
+                return _muted;
             }
             set
             {
-                muted = value;
-                if (muted)
+                _muted = value;
+                if (_muted)
                 {
-                    channelSteam.Volume = 0.0f;
+                    _channelSteam.Volume = 0.0f;
                 }
                 else
                 {              
@@ -66,48 +59,45 @@ namespace WordPlayer.Internal
 
         public override int Read(byte[] buffer, int offset, int count)
         {
-            return channelSteam.Read(buffer, offset, count);
+            return _channelSteam.Read(buffer, offset, count);
         }
 
         public override bool HasData(int count)
         {
-            return channelSteam.HasData(count);
+            return _channelSteam.HasData(count);
         }
 
         public float Volume
         {
             get
             {
-                return volume;
+                return _volume;
             }
             set
             {
-                volume = value;
+                _volume = value;
                 if (!Mute)
                 {
-                    channelSteam.Volume = volume;
+                    _channelSteam.Volume = _volume;
                 }
             }
         }
 
         public TimeSpan PreDelay
         {
-            get { return offsetStream.StartTime; }
-            set { offsetStream.StartTime = value; }
+            get { return _offsetStream.StartTime; }
+            set { _offsetStream.StartTime = value; }
         }
 
         public TimeSpan Offset
         {
-            get { return offsetStream.SourceOffset; }
-            set { offsetStream.SourceOffset = value; }
+            get { return _offsetStream.SourceOffset; }
+            set { _offsetStream.SourceOffset = value; }
         }
 
         protected override void Dispose(bool disposing)
         {
-            if (channelSteam != null)
-            {
-                channelSteam.Dispose();
-            }
+            _channelSteam?.Dispose();
 
             base.Dispose(disposing);
         }

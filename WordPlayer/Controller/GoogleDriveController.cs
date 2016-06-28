@@ -3,22 +3,17 @@ using Google.Apis.Drive.v3;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WordPlayer.Controller
 {
     public class GoogleDriveController
     {
-        // If modifying these scopes, delete your previously saved credentials
-        // at ~/.credentials/drive-dotnet-quickstart.json
-        static string[] Scopes = { DriveService.Scope.DriveReadonly };
-        static string ApplicationName = "Drive API .NET Quickstart";
+        private static readonly string[] Scopes = { DriveService.Scope.DriveReadonly };
+        private const string ApplicationName = "Drive API .NET Quickstart";
 
         public static void TestConnection()
         {
@@ -27,7 +22,7 @@ namespace WordPlayer.Controller
             using (var stream =
                 new FileStream("Resources/client_secret.json", FileMode.Open, FileAccess.Read))
             {
-                string credPath = System.Environment.GetFolderPath(
+                var credPath = System.Environment.GetFolderPath(
                     System.Environment.SpecialFolder.Personal);
                 credPath = Path.Combine(credPath, ".credentials/drive-dotnet-quickstart.json");
 
@@ -39,38 +34,27 @@ namespace WordPlayer.Controller
                     new FileDataStore(credPath, true)).Result;
                 Console.WriteLine("Credential file saved to: " + credPath);
             }
-            // Create Drive API service.
             var service = new DriveService(new BaseClientService.Initializer()
             {
                 HttpClientInitializer = credential,
                 ApplicationName = ApplicationName,
             });
 
-            // Define parameters of request.
-            FilesResource.ListRequest listRequest = service.Files.List();
+            var listRequest = service.Files.List();
             listRequest.PageSize = 10;
             listRequest.Fields = "nextPageToken, files(id, name)";
-
-            // List files.
-            IList<Google.Apis.Drive.v3.Data.File> files = listRequest.Execute()
+            var files = listRequest.Execute()
                 .Files;
             Console.WriteLine("Files:");
             if (files != null && files.Count > 0)
             {
-                string msg = "";
-                foreach (var file in files)
-                {
-                    msg += file.Name + " (" + file.Id + ")\n";
-                }
+                var msg = files.Aggregate("", (current, file) => current + (file.Name + " (" + file.Id + ")\n"));
                 MessageBox.Show(msg);
             }
             else
             {
                 MessageBox.Show("No files found.");
             }
-            //Console.Read();
-
         }
-
     }
 }
