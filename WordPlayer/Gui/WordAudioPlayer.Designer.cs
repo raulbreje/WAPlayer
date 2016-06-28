@@ -64,6 +64,7 @@ namespace WordPlayer
             this.com = this.Factory.CreateRibbonButton();
             this.btn_play = this.Factory.CreateRibbonButton();
             this.btn_pause = this.Factory.CreateRibbonButton();
+            this.btn_stop = this.Factory.CreateRibbonButton();
             this.btn_forward = this.Factory.CreateRibbonButton();
             this.group_preferences = this.Factory.CreateRibbonGroup();
             this.btn_help = this.Factory.CreateRibbonButton();
@@ -180,7 +181,7 @@ namespace WordPlayer
             // 
             // lbl_volume
             // 
-            this.lbl_volume.Label = "Volume : 80%";
+            this.lbl_volume.Label = "Volume : 100%";
             this.lbl_volume.Name = "lbl_volume";
             // 
             // btnGroupAudioControl
@@ -188,6 +189,7 @@ namespace WordPlayer
             this.btnGroupAudioControl.Items.Add(this.com);
             this.btnGroupAudioControl.Items.Add(this.btn_play);
             this.btnGroupAudioControl.Items.Add(this.btn_pause);
+            this.btnGroupAudioControl.Items.Add(this.btn_stop);
             this.btnGroupAudioControl.Items.Add(this.btn_forward);
             this.btnGroupAudioControl.Name = "btnGroupAudioControl";
             // 
@@ -214,6 +216,14 @@ namespace WordPlayer
             this.btn_pause.Name = "btn_pause";
             this.btn_pause.ShowImage = true;
             this.btn_pause.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_pause_Click);
+            // 
+            // btn_stop
+            // 
+            this.btn_stop.Image = global::WordPlayer.Properties.Resources.stop_btn_image_x18;
+            this.btn_stop.Label = "Stop";
+            this.btn_stop.Name = "btn_stop";
+            this.btn_stop.ShowImage = true;
+            this.btn_stop.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_stop_Click);
             // 
             // btn_forward
             // 
@@ -305,6 +315,7 @@ namespace WordPlayer
         internal RibbonButton btn_volumeDown;
         internal RibbonLabel lbl_volume;
         private System.Windows.Forms.Timer timer_track;
+        internal RibbonButton btn_stop;
     }
 
     partial class ThisRibbonCollection

@@ -113,12 +113,18 @@ namespace WordPlayer.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Word Audio Player
         ///
-        ///• Content 1
-        ///• Content 2
-        ///• Content 3
+        ///  Description
         ///
-        ///By Raul Breje 
-        ///.
+        ///	Word Audio Player is an useful addin in case you have to transcribe in word document from audio format. The plugin support until now the WAV audio format and it is available in english language. Another formats and languages will be introduce in the next releases.
+        ///
+        ///  Shortcut Keys
+        ///
+        ///   • Ctrl+1 - Open an audio file
+        ///   • Ctrl+2 - Play/Pause the audio file
+        ///   • Ctrl+3 - Stop the audio file
+        ///   • Ctrl+4 - Rewind the audio file
+        ///   • Ctrl+5 - Forward the audio file
+        ///  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string HelpContent {
             get {
@@ -207,6 +213,16 @@ namespace WordPlayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap stop_btn_image_x18 {
+            get {
+                object obj = ResourceManager.GetObject("stop_btn_image_x18", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap volume_down_btn_image_x18 {
             get {
                 object obj = ResourceManager.GetObject("volume_down_btn_image_x18", resourceCulture);
@@ -221,6 +237,15 @@ namespace WordPlayer.Properties {
             get {
                 object obj = ResourceManager.GetObject("volume_up_btn_image_x18", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Audio Files|*.wav.
+        /// </summary>
+        internal static string WordPlayer_OpenFileDialog_Audio_Files___wav {
+            get {
+                return ResourceManager.GetString("WordPlayer_OpenFileDialog_Audio_Files___wav", resourceCulture);
             }
         }
     }

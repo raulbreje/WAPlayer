@@ -35,9 +35,5 @@ namespace WordPlayer.AudioPlayer
 
         string GetCurrentTimeOfTrack();
 
-        void SetVolumeUp();
-
-        void SetVolumeDown();
-
     }
 }

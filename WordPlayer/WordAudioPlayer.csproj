@@ -364,6 +364,7 @@
     <Content Include="Resources\german_flag_x12.png" />
     <Content Include="Resources\romanian_flag_x12.png" />
     <Content Include="Resources\settings.xml" />
+    <Content Include="Resources\stop_btn_image_x18.png" />
     <EmbeddedResource Include="Resources\Ribbon1.xml" />
     <None Include="Resources\volume_down_btn_image_x18.png" />
     <None Include="Resources\volume_up_btn_image_x18.png" />

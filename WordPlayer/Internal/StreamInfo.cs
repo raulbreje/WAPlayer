@@ -13,6 +13,7 @@ namespace WordPlayer.Internal
         int _delayMilliseconds;
         int _volumeDecibels;
 
+
         public StreamInfo(string fileName)
         {
             this.FileName = fileName;
@@ -44,6 +45,18 @@ namespace WordPlayer.Internal
                 Stream.PreDelay = TimeSpan.FromMilliseconds(_delayMilliseconds);
             }
         }
+        public float Volume
+        {
+            get
+            {
+                return Stream.Volume;
+            }
+            set
+            {
+                Stream.Volume = value;
+            }
+        }
+
 
         public int VolumeDecibels
         {

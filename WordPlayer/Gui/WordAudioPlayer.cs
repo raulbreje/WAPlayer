@@ -13,6 +13,7 @@ using Microsoft.Office.Interop.Word;
 using NAudio.Wave;
 using WordPlayer.Controller;
 using WordPlayer.Internal;
+using WordPlayer.Properties;
 using WordPlayer.Utils;
 using static System.String;
 using System = Microsoft.Office.Interop.Word.System;
@@ -37,7 +38,7 @@ namespace WordPlayer
             _hook.RegisterHotKey(ModifierKeys.Control, Keys.D6);
             _hook.RegisterHotKey(ModifierKeys.Control, Keys.D7);
             _hook.RegisterHotKey(ModifierKeys.Control, Keys.D8);
-            
+            _hook.RegisterHotKey(ModifierKeys.Control, Keys.D9);
         }
 
         private void hook_KeyPressed(object sender, KeyPressedEventArgs e)
@@ -59,20 +60,27 @@ namespace WordPlayer
                     }
                     break;
                 case (Keys.D3):
-                    _applicationManager.Rewind();
+                    _applicationManager.Stop();
                     break;
                 case (Keys.D4):
-                    _applicationManager.Forward();
+                    _applicationManager.Rewind();
                     break;
                 case (Keys.D5):
+                    if (_applicationManager.GetStatus() == PlaybackStatus.Stopped)
+                    {
+                        SetTimeLabel();
+                    }
+                    _applicationManager.Forward();
+                    break;
+                case (Keys.D6):
                     SetVolumeLabel(-10);
                     _applicationManager.VolumeUp();
                     break;
-                case (Keys.D6):
+                case (Keys.D7):
                     SetVolumeLabel(10);
                     _applicationManager.VolumeDown();
                     break;
-                case (Keys.D7):
+                case (Keys.D8):
                     if (reporter.Equals(Empty))
                     {
                         ContentWriter.WriteQuote(
@@ -84,7 +92,7 @@ namespace WordPlayer
                     }
                     
                     break;
-                case (Keys.D8):
+                case (Keys.D9):
                     if (interviewed.Equals(Empty))
                     {
                         ContentWriter.WriteQuote(
@@ -101,7 +109,7 @@ namespace WordPlayer
         
         private void OpenFileDialog()
         {
-            var ofd = new OpenFileDialog {Filter = "Audio Files|*.mp3;*.wav;*.aiff"};
+            var ofd = new OpenFileDialog {Filter = Resources.WordPlayer_OpenFileDialog_Audio_Files___wav};
             if (ofd.ShowDialog() != DialogResult.OK) return;
             _applicationManager.Init(ofd.FileName);
             lbl_audio_name.Label = ofd.SafeFileName;
@@ -169,6 +177,10 @@ namespace WordPlayer
 
         private void btn_forward_Click(object sender, RibbonControlEventArgs e)
         {
+            if (_applicationManager.GetStatus() == PlaybackStatus.Stopped)
+            {
+                SetTimeLabel();
+            }
             _applicationManager.Forward();
         }
 
@@ -201,12 +213,26 @@ namespace WordPlayer
 
         private void timer_track_Tick(object sender, EventArgs e)
         {
-            if (_applicationManager.GetStatus() == PlaybackStatus.Playing)
+            if (_applicationManager.GetStatus() != PlaybackStatus.Playing) return;
+            if (_applicationManager.GetPositionFromMixer() > _applicationManager.GetLengthFromMixer())
             {
-                string curr = _applicationManager.GetCurrentTimeOfTrack();
-                string max = _applicationManager.GetTotalTimeOfTrack();
-                    lbl_time_tracker.Label = curr + " / " + max;
+                _applicationManager.Stop();
             }
+            SetTimeLabel();
+        }
+
+        private void SetTimeLabel()
+        {
+            var curr = _applicationManager.GetCurrentTimeOfTrack();
+            var max = _applicationManager.GetTotalTimeOfTrack();
+            lbl_time_tracker.Label = curr + " / " + max;
+        }
+
+        private void btn_stop_Click(object sender, RibbonControlEventArgs e)
+        {
+            _applicationManager.Stop();
+            SetTimeLabel();
+            timer_track.Stop();
         }
     }
 }

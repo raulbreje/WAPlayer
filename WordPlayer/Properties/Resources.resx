@@ -168,4 +168,10 @@
   <data name="romanian_flag_x12" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\romanian_flag_x12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="stop_btn_image_x18" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\stop_btn_image_x18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WordPlayer_OpenFileDialog_Audio_Files___wav" xml:space="preserve">
+    <value>Audio Files|*.wav</value>
+  </data>
 </root>

@@ -12,7 +12,7 @@ namespace WordPlayer.Internal
 
         public AudioStream(string fileName)
         {
-            WaveFileReader reader = new WaveFileReader(fileName);
+            var reader = new WaveFileReader(fileName);
             _offsetStream = new WaveOffsetStream(reader);
             _channelSteam = new WaveChannel32(_offsetStream);
             _muted = false;

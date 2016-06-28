@@ -27,44 +27,30 @@ namespace WordPlayer.Controller
     }
     class WaManager : IWaManager
     {
-        private const float volume = 1.0f;
-        private const float MinDb = -48;
-        public event EventHandler VolumeChanged;
-
         private int _skipSeconds;
         private AudioStream _stream;
+        private StreamInfo sinfo;
 
         private IWavePlayer _wavePlayer;
-        private AudioFileReader _file;
         private static readonly IExceptionHandler ExceptionHandler = new ExceptionHandler();
 
         private WaveMixerStream32 _mixer;
         public PlaybackStatus Status { get; set; }
 
-        public void SetVolumeUp()
+        public void VolumeUp()
         {
-            Volume = (1 - (float)volume + 10) * MinDb;
+            var oldVolume = sinfo.Volume;
+            if (!(oldVolume >= 0f)) return;
+            var newValue = oldVolume + 0.1f;
+            sinfo.Volume = newValue;
         }
 
-        public void SetVolumeDown()
+        public void VolumeDown()
         {
-            Volume = (1 - (float)volume - 10) * MinDb;
-        }
-
-        [DefaultValue(1.0f)]
-        public float Volume
-        {
-            get
-            {
-                return volume;
-            }
-            set
-            {
-                if (value < 0.0f)
-                    value = 0.0f;
-                if (value > 1.0f)
-                    value = 1.0f;
-            }
+            var oldVolume = sinfo.Volume;
+            if (!(oldVolume <= 1f)) return;
+            var newValue = oldVolume - 0.1f;
+            sinfo.Volume = newValue;
         }
 
         private static void Handle(Exception exception)
@@ -89,9 +75,7 @@ namespace WordPlayer.Controller
 
         public void Init(string path)
         {
-            StreamInfo sinfo = new StreamInfo(path);
-            sinfo.Letter = "A";
-            _file = new AudioFileReader(@path);
+            sinfo = new StreamInfo(path);
             _mixer = new WaveMixerStream32();
             _mixer.AddInputStream(sinfo.Stream);
             _wavePlayer = new WaveOut();
@@ -115,16 +99,29 @@ namespace WordPlayer.Controller
 
         public void Stop()
         {
-            _wavePlayer.Stop();
-            Status = PlaybackStatus.Stopped;
+            if (Status != PlaybackStatus.Stopped)
+            {
+                if (_wavePlayer != null)
+                {
+                    _wavePlayer.Stop();
+                    _mixer.CurrentTime = TimeSpan.Zero;
+                    Status = PlaybackStatus.Stopped;
+                }
+            }
         }
 
         public void Forward()
         {
-            if (_mixer != null)
+            if (_mixer == null) return;
+            if (Status == PlaybackStatus.Playing)
             {
                 _mixer.CurrentTime += TimeSpan.FromSeconds(_skipSeconds);
             }
+            
+            if (_mixer.CurrentTime < _mixer.TotalTime) return;
+            _wavePlayer.Stop();
+            _mixer.CurrentTime = TimeSpan.Zero;
+            Status = PlaybackStatus.Stopped;
         }
 
         public void Rewind()
@@ -134,9 +131,11 @@ namespace WordPlayer.Controller
 
         private void SkipBack()
         {
-            if (_mixer != null)
+            if (_mixer == null) return;
+            _mixer.CurrentTime += TimeSpan.FromSeconds(0 - _skipSeconds);
+            if (_mixer.CurrentTime <= TimeSpan.Zero)
             {
-                _mixer.CurrentTime += TimeSpan.FromSeconds(0 - _skipSeconds);
+                _mixer.CurrentTime = TimeSpan.Zero;
             }
         }
 
@@ -151,18 +150,6 @@ namespace WordPlayer.Controller
                 Handle(e);
             }
             
-        }
-
-        public void VolumeUp()
-        {
-            var dbVolume = (1 + (float)10 / 20) * MinDb;
-            Volume = (float)Math.Pow(10, dbVolume / 20);
-        }
-
-        public void VolumeDown()
-        {
-            var dbVolume = (1 - (float)10 / 20) * MinDb;
-            Volume = (float)Math.Pow(10, dbVolume / 20);
         }
 
         public string GetTotalTimeOfTrack()
