@@ -97,12 +97,11 @@ namespace WordPlayer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        ///   Looks up a localized string similar to Default Interviewed.
         /// </summary>
-        internal static System.Drawing.Icon logo {
+        internal static string interviewed_quote {
             get {
-                object obj = ResourceManager.GetObject("logo", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                return ResourceManager.GetString("interviewed_quote", resourceCulture);
             }
         }
         
@@ -147,6 +146,15 @@ namespace WordPlayer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Default Reporter: .
+        /// </summary>
+        internal static string reporter_quote {
+            get {
+                return ResourceManager.GetString("reporter_quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap rewind_btn_image_x18 {
@@ -157,45 +165,11 @@ namespace WordPlayer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-        ///&lt;application&gt;
-        ///  &lt;audio_formats&gt;
-        ///    &lt;audio_format id=&quot;mp3_format&quot;&gt;
-        ///      &lt;string_value&gt;.mp3&lt;/string_value&gt;
-        ///      &lt;is_checked&gt;yes&lt;/is_checked&gt;
-        ///    &lt;/audio_format&gt;
-        ///    &lt;audio_format id=&quot;wav_format&quot;&gt;
-        ///      &lt;string_value&gt;.wav&lt;/string_value&gt;
-        ///      &lt;is_checked&gt;yes&lt;/is_checked&gt;
-        ///    &lt;/audio_format&gt;
-        ///    &lt;audio_format id=&quot;aac_format&quot;&gt;
-        ///      &lt;string_value&gt;.aac&lt;/string_value&gt;
-        ///      &lt;is_checked&gt;yes&lt;/is_checked&gt;
-        ///    &lt;/audio_format&gt;
-        ///    &lt;audio_format id=&quot;aiff_format&quot;&gt; [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string settings {
-            get {
-                return ResourceManager.GetString("settings", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap volume_down_btn_image_x18 {
             get {
                 object obj = ResourceManager.GetObject("volume_down_btn_image_x18", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap volume_up_btn_image {
-            get {
-                object obj = ResourceManager.GetObject("volume_up_btn_image", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -6,10 +6,17 @@ using System.Threading.Tasks;
 
 namespace WordPlayer.Controller
 {
-
-    //private List<>
-
-    class SettingsController
+    
+    public class SettingsController
     {
+        private string _reporterQuote = "Default Reporter: ";
+
+        private string _interviewedQuote = "Default Interviewed";
+
+        public SettingsController(string reporterQuote, string interviewedQuote)
+        {
+            _reporterQuote = reporterQuote;
+            this._interviewedQuote = interviewedQuote;
+        }
     }
 }

@@ -12,11 +12,11 @@ namespace WordPlayer.Utils
         
         public void Init()
         {
-            var reader = new XmlTextReader(Properties.Resources.settings);
-            while (reader.Read())
-            {
+            //var reader = new XmlTextReader(Properties.Resources.settings);
+            //while (reader.Read())
+            //{
                 
-            }
+            //}
             
         }
 

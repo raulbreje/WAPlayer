@@ -14,10 +14,6 @@ namespace WordPlayer.Utils
         public static string PLAY_SPEED_2 = "1";
         public static string PLAY_SPEED_3 = "1.5";
         public static string PLAY_SPEED_4 = "2";
-
-        public static IWAManager GetAudioFileController(string path)
-        {
-            return new WAManager(path);
-        }
+        
     }
 }

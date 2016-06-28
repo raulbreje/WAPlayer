@@ -118,43 +118,42 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pause_btn_image_x18" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pause_btn_image_x18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="play_btn_image_x18" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\play_btn_image_x18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="forward_btn_image_x18" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\forward_btn_image_x18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="google_drive_image_x18" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\google_drive_image_x18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="open_btn_image_x18" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\open_btn_image_x18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="volume_up_btn_image_x18" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\volume_up_btn_image_x18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="volume_up_btn_image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\volume_up_btn_image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logo_x275" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo_x275.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="rewind_btn_image_x18" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rewind_btn_image_x18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="forward_btn_image_x18" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\forward_btn_image_x18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="volume_down_btn_image_x18" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\volume_down_btn_image_x18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\google_drive_image_x18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="HelpContent" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\HelpContent.rtf;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\resources\helpcontent.rtf;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\settings.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="interviewed_quote" xml:space="preserve">
+    <value>Default Interviewed</value>
+    <comment>the interviewed speech</comment>
+  </data>
+  <data name="logo_x275" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\logo_x275.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="open_btn_image_x18" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\open_btn_image_x18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pause_btn_image_x18" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\pause_btn_image_x18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="play_btn_image_x18" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\play_btn_image_x18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reporter_quote" xml:space="preserve">
+    <value>Default Reporter: </value>
+    <comment>the reported speech</comment>
+  </data>
+  <data name="rewind_btn_image_x18" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\rewind_btn_image_x18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="volume_down_btn_image_x18" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\volume_down_btn_image_x18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="volume_up_btn_image_x18" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\volume_up_btn_image_x18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

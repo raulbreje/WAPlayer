@@ -1,7 +1,13 @@
-﻿namespace WordPlayer.AudioPlayer
+﻿using WordPlayer.Controller;
+
+namespace WordPlayer.AudioPlayer
 {
-    public interface IWAManager
+    public interface IWaManager
     {
+
+        void SetStatus(PlaybackStatus status);
+
+        PlaybackStatus GetStatus();
 
         void Init(string path);
 
@@ -22,6 +28,13 @@
         void VolumeDown();
 
         string GetTotalTimeOfTrack();
+        long GetPositionFromMixer();
+        long GetLengthFromMixer();
+
+        string GetCurrentTimeOfTrack();
+
+        void SetVolumeUp();
+        void SetVolumeDown();
 
     }
 }

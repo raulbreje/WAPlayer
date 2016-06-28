@@ -38,6 +38,7 @@ namespace WordPlayer
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             Microsoft.Office.Tools.Ribbon.RibbonDialogLauncher ribbonDialogLauncherImpl1 = this.Factory.CreateRibbonDialogLauncher();
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl1 = this.Factory.CreateRibbonDropDownItem();
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl2 = this.Factory.CreateRibbonDropDownItem();
@@ -68,6 +69,7 @@ namespace WordPlayer
             this.btn_help = this.Factory.CreateRibbonButton();
             this.btn_settings = this.Factory.CreateRibbonButton();
             this.btn_about = this.Factory.CreateRibbonButton();
+            this.timer_track = new System.Windows.Forms.Timer(this.components);
             this.tab_wordPlayer.SuspendLayout();
             this.group_customization.SuspendLayout();
             this.group_player.SuspendLayout();
@@ -133,7 +135,7 @@ namespace WordPlayer
             this.group_player.Items.Add(this.lbl_audio_name);
             this.group_player.Items.Add(this.box_audioData);
             this.group_player.Items.Add(this.btnGroupAudioControl);
-            this.group_player.Label = "Player";
+            this.group_player.Label = "Audio Player";
             this.group_player.Name = "group_player";
             this.group_player.DialogLauncherClick += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_settings_Click);
             // 
@@ -151,7 +153,7 @@ namespace WordPlayer
             // 
             // lbl_time_tracker
             // 
-            this.lbl_time_tracker.Label = "00:00:00 / 00:00:00";
+            this.lbl_time_tracker.Label = "00:00 / 00:00";
             this.lbl_time_tracker.Name = "lbl_time_tracker";
             // 
             // btnGroupVolumeControl
@@ -248,6 +250,11 @@ namespace WordPlayer
             this.btn_about.Name = "btn_about";
             this.btn_about.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_about_Click);
             // 
+            // timer_track
+            // 
+            this.timer_track.Interval = 200;
+            this.timer_track.Tick += new System.EventHandler(this.timer_track_Tick);
+            // 
             // WordPlayer
             // 
             this.Name = "WordPlayer";
@@ -296,6 +303,7 @@ namespace WordPlayer
         internal RibbonButton btn_volumeUp;
         internal RibbonButton btn_volumeDown;
         internal RibbonLabel lbl_volume;
+        private System.Windows.Forms.Timer timer_track;
     }
 
     partial class ThisRibbonCollection

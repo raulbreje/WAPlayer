@@ -172,6 +172,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Windows.Forms" />
@@ -263,7 +264,15 @@
     <Compile Include="Gui\HelpMenu.Designer.cs">
       <DependentUpon>HelpMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Internal\AudioStream.cs" />
+    <Compile Include="Internal\ContentWriter.cs" />
     <Compile Include="Internal\Model\AudioFormat.cs" />
+    <Compile Include="Internal\Resources\SettingsResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SettingsResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\StreamInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -297,6 +306,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\HelpMenu.resx">
       <DependentUpon>HelpMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Internal\Resources\SettingsResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SettingsResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

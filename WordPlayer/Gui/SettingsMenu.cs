@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Resources;
 using System.Windows.Forms;
 
 namespace WordPlayer.Gui
@@ -22,6 +16,9 @@ namespace WordPlayer.Gui
         public SettingsMenu()
         {
             InitializeComponent();
+            var rm = Internal.Resources.SettingsResources.ResourceManager;
+            rtb_reporter.Text = rm.GetString("reporter_quote");
+            rtb_interviewed.Text = rm.GetString("interviewed_quote");
         }
 
         public string[] GetSelectedAudioFormatsList()
@@ -45,6 +42,16 @@ namespace WordPlayer.Gui
                 listOfFormatsStrings[index] = Mp3Format;
             }
             return listOfFormatsStrings;
+        }
+
+        private void btn_okay_Click(object sender, EventArgs e)
+        {
+            using (var resx = new ResXResourceWriter(@"D:\Private\Bachelor Degree Workspace\WordPlayer\VS Workspace\WordPlayer\WordPlayer\Internal\Resources\SettingsResources.resx"))
+            {
+                resx.AddResource("reporter_quote", rtb_reporter.Text);
+                resx.AddResource("interviewed_quote", rtb_interviewed.Text);
+            }
+            this.Close();
         }
     }
 }

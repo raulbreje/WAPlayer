@@ -30,11 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsMenu));
             this.group_audioFormats = new System.Windows.Forms.GroupBox();
+            this.checkBox_aac = new System.Windows.Forms.CheckBox();
+            this.checkBox_aiff = new System.Windows.Forms.CheckBox();
             this.checkBox_wav = new System.Windows.Forms.CheckBox();
             this.checkBox_mp3 = new System.Windows.Forms.CheckBox();
-            this.checkBox_aiff = new System.Windows.Forms.CheckBox();
-            this.checkBox_aac = new System.Windows.Forms.CheckBox();
+            this.group_reporter = new System.Windows.Forms.GroupBox();
+            this.rtb_reporter = new System.Windows.Forms.RichTextBox();
+            this.group_interviewed = new System.Windows.Forms.GroupBox();
+            this.rtb_interviewed = new System.Windows.Forms.RichTextBox();
+            this.btn_okay = new System.Windows.Forms.Button();
             this.group_audioFormats.SuspendLayout();
+            this.group_reporter.SuspendLayout();
+            this.group_interviewed.SuspendLayout();
             this.SuspendLayout();
             // 
             // group_audioFormats
@@ -43,12 +50,32 @@
             this.group_audioFormats.Controls.Add(this.checkBox_aiff);
             this.group_audioFormats.Controls.Add(this.checkBox_wav);
             this.group_audioFormats.Controls.Add(this.checkBox_mp3);
-            this.group_audioFormats.Location = new System.Drawing.Point(16, 126);
+            this.group_audioFormats.Location = new System.Drawing.Point(12, 12);
             this.group_audioFormats.Name = "group_audioFormats";
-            this.group_audioFormats.Size = new System.Drawing.Size(556, 124);
+            this.group_audioFormats.Size = new System.Drawing.Size(560, 124);
             this.group_audioFormats.TabIndex = 1;
             this.group_audioFormats.TabStop = false;
             this.group_audioFormats.Text = "Audio Formats";
+            // 
+            // checkBox_aac
+            // 
+            this.checkBox_aac.AutoSize = true;
+            this.checkBox_aac.Location = new System.Drawing.Point(7, 92);
+            this.checkBox_aac.Name = "checkBox_aac";
+            this.checkBox_aac.Size = new System.Drawing.Size(47, 17);
+            this.checkBox_aac.TabIndex = 3;
+            this.checkBox_aac.Text = "AAC";
+            this.checkBox_aac.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_aiff
+            // 
+            this.checkBox_aiff.AutoSize = true;
+            this.checkBox_aiff.Location = new System.Drawing.Point(7, 68);
+            this.checkBox_aiff.Name = "checkBox_aiff";
+            this.checkBox_aiff.Size = new System.Drawing.Size(48, 17);
+            this.checkBox_aiff.TabIndex = 2;
+            this.checkBox_aiff.Text = "AIFF";
+            this.checkBox_aiff.UseVisualStyleBackColor = true;
             // 
             // checkBox_wav
             // 
@@ -70,32 +97,62 @@
             this.checkBox_mp3.Text = "MP3";
             this.checkBox_mp3.UseVisualStyleBackColor = true;
             // 
-            // checkBox_aiff
+            // group_reporter
             // 
-            this.checkBox_aiff.AutoSize = true;
-            this.checkBox_aiff.Location = new System.Drawing.Point(7, 68);
-            this.checkBox_aiff.Name = "checkBox_aiff";
-            this.checkBox_aiff.Size = new System.Drawing.Size(48, 17);
-            this.checkBox_aiff.TabIndex = 2;
-            this.checkBox_aiff.Text = "AIFF";
-            this.checkBox_aiff.UseVisualStyleBackColor = true;
+            this.group_reporter.Controls.Add(this.rtb_reporter);
+            this.group_reporter.Location = new System.Drawing.Point(12, 142);
+            this.group_reporter.Name = "group_reporter";
+            this.group_reporter.Size = new System.Drawing.Size(560, 110);
+            this.group_reporter.TabIndex = 3;
+            this.group_reporter.TabStop = false;
+            this.group_reporter.Text = "Reporter";
             // 
-            // checkBox_aac
+            // rtb_reporter
             // 
-            this.checkBox_aac.AutoSize = true;
-            this.checkBox_aac.Location = new System.Drawing.Point(7, 92);
-            this.checkBox_aac.Name = "checkBox_aac";
-            this.checkBox_aac.Size = new System.Drawing.Size(47, 17);
-            this.checkBox_aac.TabIndex = 3;
-            this.checkBox_aac.Text = "AAC";
-            this.checkBox_aac.UseVisualStyleBackColor = true;
+            this.rtb_reporter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtb_reporter.Location = new System.Drawing.Point(3, 16);
+            this.rtb_reporter.Name = "rtb_reporter";
+            this.rtb_reporter.Size = new System.Drawing.Size(554, 91);
+            this.rtb_reporter.TabIndex = 0;
+            this.rtb_reporter.Text = "Default Reporter says:";
+            // 
+            // group_interviewed
+            // 
+            this.group_interviewed.Controls.Add(this.rtb_interviewed);
+            this.group_interviewed.Location = new System.Drawing.Point(15, 258);
+            this.group_interviewed.Name = "group_interviewed";
+            this.group_interviewed.Size = new System.Drawing.Size(560, 110);
+            this.group_interviewed.TabIndex = 4;
+            this.group_interviewed.TabStop = false;
+            this.group_interviewed.Text = "Interviewed";
+            // 
+            // rtb_interviewed
+            // 
+            this.rtb_interviewed.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtb_interviewed.Location = new System.Drawing.Point(3, 16);
+            this.rtb_interviewed.Name = "rtb_interviewed";
+            this.rtb_interviewed.Size = new System.Drawing.Size(554, 91);
+            this.rtb_interviewed.TabIndex = 0;
+            this.rtb_interviewed.Text = "Default Interviewed answers:";
+            // 
+            // btn_okay
+            // 
+            this.btn_okay.Location = new System.Drawing.Point(497, 426);
+            this.btn_okay.Name = "btn_okay";
+            this.btn_okay.Size = new System.Drawing.Size(75, 23);
+            this.btn_okay.TabIndex = 5;
+            this.btn_okay.Text = "OK";
+            this.btn_okay.UseVisualStyleBackColor = true;
+            this.btn_okay.Click += new System.EventHandler(this.btn_okay_Click);
             // 
             // SettingsMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(584, 461);
+            this.Controls.Add(this.btn_okay);
+            this.Controls.Add(this.group_interviewed);
+            this.Controls.Add(this.group_reporter);
             this.Controls.Add(this.group_audioFormats);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SettingsMenu";
@@ -103,6 +160,8 @@
             this.Text = "Settings | Word Audio Player";
             this.group_audioFormats.ResumeLayout(false);
             this.group_audioFormats.PerformLayout();
+            this.group_reporter.ResumeLayout(false);
+            this.group_interviewed.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -113,5 +172,10 @@
         private System.Windows.Forms.CheckBox checkBox_mp3;
         private System.Windows.Forms.CheckBox checkBox_aac;
         private System.Windows.Forms.CheckBox checkBox_aiff;
+        private System.Windows.Forms.GroupBox group_reporter;
+        private System.Windows.Forms.RichTextBox rtb_reporter;
+        private System.Windows.Forms.GroupBox group_interviewed;
+        private System.Windows.Forms.RichTextBox rtb_interviewed;
+        private System.Windows.Forms.Button btn_okay;
     }
 }
