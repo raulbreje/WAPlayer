@@ -1,4 +1,5 @@
-﻿using System.Resources;
+﻿using System;
+using System.Resources;
 using Microsoft.Office.Interop.Word;
 using WordPlayer.Internal;
 using WordPlayer.Utils;
@@ -12,16 +13,29 @@ namespace WordPlayer
         
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
-            _wordPlayer = Globals.Ribbons.WordPlayer;
-            ContentWriter.ThisAddIn = this;
+            try
+            {
+                _wordPlayer = Globals.Ribbons.WordPlayer;
+                ContentWriter.ThisAddIn = this;
+            }
+            catch (Exception exp)
+            {
+
+            }
+           
             
         }
 
         public void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {
-            _wordPlayer.Close();
-            
-        }
+            try {
+                _wordPlayer.Close();
+            }
+            catch (Exception exp)
+            {
+
+            }
+}
         
         #region VSTO generated code
 

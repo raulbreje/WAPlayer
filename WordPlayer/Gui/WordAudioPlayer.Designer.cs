@@ -93,11 +93,11 @@ namespace WordPlayer
             // 
             ribbonDialogLauncherImpl1.Enabled = false;
             this.group_customization.DialogLauncher = ribbonDialogLauncherImpl1;
-            this.group_customization.Items.Add(this.btn_open);
             this.group_customization.Items.Add(this.btn_googleDriveAPI);
             this.group_customization.Items.Add(this.dropDown_speed);
             this.group_customization.Label = "Customization";
             this.group_customization.Name = "group_customization";
+            this.group_customization.Visible = false;
             // 
             // btn_open
             // 
@@ -129,6 +129,7 @@ namespace WordPlayer
             this.dropDown_speed.Items.Add(ribbonDropDownItemImpl4);
             this.dropDown_speed.Label = "Speed";
             this.dropDown_speed.Name = "dropDown_speed";
+            this.dropDown_speed.Visible = false;
             // 
             // group_player
             // 
@@ -165,6 +166,7 @@ namespace WordPlayer
             // 
             // btn_volumeUp
             // 
+            this.btn_volumeUp.Enabled = false;
             this.btn_volumeUp.Image = global::WordPlayer.Properties.Resources.volume_up_btn_image_x18;
             this.btn_volumeUp.Label = "Up";
             this.btn_volumeUp.Name = "btn_volumeUp";
@@ -173,6 +175,7 @@ namespace WordPlayer
             // 
             // btn_volumeDown
             // 
+            this.btn_volumeDown.Enabled = false;
             this.btn_volumeDown.Image = global::WordPlayer.Properties.Resources.volume_down_btn_image_x18;
             this.btn_volumeDown.Label = "Down";
             this.btn_volumeDown.Name = "btn_volumeDown";
@@ -186,6 +189,7 @@ namespace WordPlayer
             // 
             // btnGroupAudioControl
             // 
+            this.btnGroupAudioControl.Items.Add(this.btn_open);
             this.btnGroupAudioControl.Items.Add(this.com);
             this.btnGroupAudioControl.Items.Add(this.btn_play);
             this.btnGroupAudioControl.Items.Add(this.btn_pause);

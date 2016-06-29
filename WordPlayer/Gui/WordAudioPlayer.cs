@@ -53,6 +53,7 @@ namespace WordPlayer
                     if (_applicationManager.GetStatus() != PlaybackStatus.Playing)
                     {
                         _applicationManager.Play();
+                        timer_track.Start();
                     }
                     else
                     {
@@ -61,6 +62,8 @@ namespace WordPlayer
                     break;
                 case (Keys.D3):
                     _applicationManager.Stop();
+                    SetTimeLabel();
+                    timer_track.Stop();
                     break;
                 case (Keys.D4):
                     _applicationManager.Rewind();
@@ -112,6 +115,7 @@ namespace WordPlayer
             var ofd = new OpenFileDialog {Filter = Resources.WordPlayer_OpenFileDialog_Audio_Files___wav};
             if (ofd.ShowDialog() != DialogResult.OK) return;
             _applicationManager.Init(ofd.FileName);
+            _applicationManager.SetStatus(PlaybackStatus.Stopped);
             lbl_audio_name.Label = ofd.SafeFileName;
             lbl_time_tracker.Label = _applicationManager.GetCurrentTimeOfTrack() + " / " + _applicationManager.GetTotalTimeOfTrack();
         }

@@ -144,6 +144,9 @@ namespace WordPlayer.Controller
             try
             {
                 _wavePlayer.Dispose();
+                _mixer.Dispose();
+                _wavePlayer = null;
+                _mixer = null;
             }
             catch (Exception e)
             {
