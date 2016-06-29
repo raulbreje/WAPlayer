@@ -8,6 +8,7 @@ using WordPlayer.AudioPlayer;
 using System.Windows.Forms;
 using WordPlayer.Gui;
 using System.Threading;
+using ErrorHandling.Handlers;
 using KeyboardInterceptor;
 using Microsoft.Office.Interop.Word;
 using NAudio.Wave;
@@ -26,6 +27,8 @@ namespace WordPlayer
         private ThisAddIn tai;
         private readonly IWaManager _applicationManager = new WaManager();
         private readonly KeyboardHook _hook = new KeyboardHook();
+
+        private static readonly IExceptionHandler ErrorHandling = new ExceptionHandler();
         
         private void WordPlayer_Load(object sender, RibbonUIEventArgs e)
         {
@@ -39,6 +42,11 @@ namespace WordPlayer
             _hook.RegisterHotKey(ModifierKeys.Control, Keys.D7);
             _hook.RegisterHotKey(ModifierKeys.Control, Keys.D8);
             _hook.RegisterHotKey(ModifierKeys.Control, Keys.D9);
+        }
+
+        private static void Handle(Exception exception)
+        {
+            ErrorHandling.Handle(exception);
         }
 
         private void hook_KeyPressed(object sender, KeyPressedEventArgs e)
